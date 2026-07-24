@@ -36,7 +36,9 @@ const PARTICIPANTS = [
   { "code": "BEL", "name": "Akshay", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 36 },
-  { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
+  { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
 ];
 
 /* ---------- FIXTURES ---------- */
