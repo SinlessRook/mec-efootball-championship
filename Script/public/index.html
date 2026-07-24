@@ -65,7 +65,7 @@
   .row .fixed{flex:0 0 auto;}
   .remove-btn{
     background:none; border:1px solid var(--danger); color:var(--danger); border-radius:6px;
-    width:36px; height:36px; cursor:pointer; font-size:16px; line-height:1;
+    width:36px; height:36px; cursor:pointer; font-size:16px; line-height:1; flex:0 0 auto;
   }
   .remove-btn:hover{background:var(--danger); color:#fff;}
   .add-btn{
@@ -73,20 +73,63 @@
     padding:9px 14px; cursor:pointer; font-size:13.5px; font-weight:600; margin-top:4px;
   }
   .add-btn:hover{background:#eaf3ee;}
+
+  /* ---------- quick find ---------- */
+  .quick-find{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:18px; position:sticky; top:0; z-index:5;}
+  .quick-find .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .quick-find input[type="text"]{flex:1 1 220px;}
+  .quick-find .checkbox{display:flex; align-items:center; gap:6px; font-size:13px; text-transform:none; font-weight:500; color:var(--ink); flex:0 0 auto; white-space:nowrap; margin:0;}
+  .quick-find .checkbox input{width:auto; margin:0;}
+  .filter-empty{font-size:13px; color:#5b6560; padding:10px 2px 0; display:none;}
+  .filter-count{font-size:12px; color:#5b6560; margin-top:8px;}
+
   .matchday-card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:16px; background:var(--card);}
   .matchday-head{display:flex; gap:10px; align-items:center; margin-bottom:12px;}
   .matchday-head input{max-width:220px;}
   .matchday-head .num{color:#5b6560; font-size:13px; white-space:nowrap;}
-  .match-row{display:grid; grid-template-columns:1fr 44px 44px 1fr 90px 36px; gap:8px; align-items:center; margin-bottom:8px;}
-  .match-row select, .match-row input{padding:8px;}
-  .score-input{text-align:center; font-family:var(--mono); font-weight:700;}
-  .vs{text-align:center; color:#9aa39d; font-weight:700; font-size:12px;}
   .delete-matchday{color:var(--danger); font-size:12.5px; background:none; border:none; cursor:pointer; text-decoration:underline; margin-left:auto;}
-  .participant-row{display:grid; grid-template-columns:70px 1.3fr 1fr 60px 90px 55px 55px 55px 55px 60px 36px; gap:6px; align-items:center; margin-bottom:8px;}
-  .participant-row input{padding:7px;}
-  .swatch{width:100%; height:34px; border-radius:6px; border:1px solid var(--line); padding:0;}
-  .col-labels{display:grid; grid-template-columns:70px 1.3fr 1fr 60px 90px 55px 55px 55px 55px 60px 36px; gap:6px; margin-bottom:4px;}
-  .col-labels label{margin-bottom:0;}
+
+  .match-block{border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:8px;}
+  .match-block:last-of-type{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+  .match-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center;}
+  .match-row select{flex:1 1 150px; min-width:110px; padding:8px;}
+  .match-row input[data-f="time"]{flex:0 0 74px; padding:8px;}
+  .score-input{flex:0 0 40px; width:40px; text-align:center; font-family:var(--mono); font-weight:700; padding:8px 4px;}
+  .vs{color:#9aa39d; font-weight:700; font-size:12px; flex:0 0 auto;}
+  .status-dot{width:9px; height:9px; border-radius:50%; flex:0 0 auto;}
+  .status-dot.played{background:var(--pitch);}
+  .status-dot.pending{background:var(--gold);}
+  .stats-toggle{
+    flex:0 0 auto; background:none; border:1px solid var(--line); color:#5b6560; border-radius:6px;
+    padding:7px 10px; font-size:12px; font-weight:600; cursor:pointer;
+  }
+  .stats-toggle.has-data{border-color:var(--pitch); color:var(--pitch-dark); background:#eaf3ee;}
+  .stats-toggle.open{background:var(--pitch-dark); color:#fff; border-color:var(--pitch-dark);}
+
+  .stats-panel{display:none; margin-top:8px; padding:10px 12px 12px; background:#f7f8f6; border:1px dashed var(--line); border-radius:8px;}
+  .stats-panel.open{display:block;}
+  .stats-panel .stats-grid{display:grid; grid-template-columns:80px 1fr 1fr; gap:8px 14px; align-items:center;}
+  .stats-panel .col-head{font-size:10.5px; text-transform:uppercase; color:#5b6560; font-weight:700; letter-spacing:.3px;}
+  .stats-panel .stat-label{font-size:12px; font-weight:600; color:var(--ink);}
+  .stats-panel input{padding:6px 8px;}
+  .stats-hint{font-size:11.5px; color:#5b6560; margin:0 0 10px;}
+
+  .participant-card{border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:var(--card);}
+  .participant-main{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px;}
+  .participant-main input[data-f="code"]{flex:0 0 64px;}
+  .participant-main input[data-f="name"]{flex:1 1 160px;}
+  .participant-main input[data-f="country"]{flex:1 1 130px;}
+  .participant-main input[data-f="flag"]{flex:0 0 60px;}
+  .swatch{flex:0 0 44px; width:44px; height:34px; border-radius:6px; border:1px solid var(--line); padding:0;}
+  .participant-stats{display:flex; gap:18px; flex-wrap:wrap; padding-top:10px; border-top:1px solid var(--line);}
+  .stat-box{min-width:82px;}
+  .stat-box .stat-name{font-size:10px; text-transform:uppercase; color:#5b6560; font-weight:700; letter-spacing:.3px; margin-bottom:2px;}
+  .stat-box .stat-total{font-size:19px; font-weight:700; color:var(--pitch-dark); line-height:1.2;}
+  .stat-box .stat-base-wrap{display:flex; align-items:center; gap:4px; margin-top:3px;}
+  .stat-box .stat-base-label{font-size:9.5px; color:#9aa39d; white-space:nowrap;}
+  .stat-box .stat-base-wrap input{width:48px; padding:3px 5px; font-size:12px;}
+  .col-labels{display:none;}
+
   .rule-card{border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; background:var(--card);}
   .rule-head{display:flex; gap:10px; margin-bottom:8px;}
   .rule-head .icon-input{max-width:70px; text-align:center; font-size:18px;}
@@ -135,22 +178,25 @@
   <!-- PARTICIPANTS -->
   <section class="panel" id="panel-participants">
     <h2>Participants</h2>
-    <p class="hint">Country codes must be lowercase (flag) and player codes (used in fixtures) must stay unique, e.g. ESP, ARG.</p>
-    <div class="card">
-      <div class="col-labels">
-        <label>Code</label><label>Gamertag</label><label>Country</label><label>Flag</label>
-        <label>Color</label><label>Goals</label><label>Assists</label><label>Yellow</label>
-        <label>Red</label><label>Passes</label><label></label>
-      </div>
-      <div id="participantsList"></div>
-      <button class="add-btn" id="addParticipant">+ Add player</button>
-    </div>
+    <p class="hint">Goals, yellow/red cards and passes are calculated automatically from match results and match stats — you don't need to type them in here. Use "starting total" only to carry over a number from before you started tracking per-match stats (e.g. a card someone picked up in a friendly). Assists aren't captured per match yet, so that field is still a plain editable number.</p>
+    <div id="participantsList"></div>
+    <button class="add-btn" id="addParticipant">+ Add player</button>
   </section>
 
   <!-- MATCHDAYS -->
   <section class="panel" id="panel-matchdays">
-    <h2>Matchdays, fixtures &amp; scores</h2>
-    <p class="hint">Leave a score box empty for a match that hasn't been played yet. Fill both boxes in to record a result.</p>
+    <h2>Matchdays, fixtures &amp; results</h2>
+
+    <div class="quick-find">
+      <div class="controls">
+        <input type="text" id="matchSearch" placeholder="🔎 Find a match by player, country or code…">
+        <label class="checkbox"><input type="checkbox" id="onlyUnplayed"> Only show matches with no result yet</label>
+      </div>
+      <div class="filter-empty" id="matchFilterEmpty">No matches found. Try a different name.</div>
+      <div class="filter-count" id="matchFilterCount"></div>
+    </div>
+
+    <p class="hint">Leave a score box empty for a match that hasn't been played yet. Once you fill in both scores, hit "Stats" on that row to log passes, yellow and red cards — those totals are added to each player's season stats automatically.</p>
     <div id="matchdaysList"></div>
     <button class="add-btn" id="addMatchday">+ Add matchday</button>
   </section>
@@ -223,58 +269,280 @@ function bindSimpleInputs(){
   });
 }
 
+/* =========================================================
+   STAT CALCULATIONS (mirrors server.js so the admin UI shows
+   live totals before you even hit Save)
+   ========================================================= */
+function ensureBase(code){
+  if(!DATA.PARTICIPANT_BASE) DATA.PARTICIPANT_BASE = {};
+  if(!DATA.PARTICIPANT_BASE[code]) DATA.PARTICIPANT_BASE[code] = {goals:0, assists:0, yellow:0, red:0, passes:0};
+  return DATA.PARTICIPANT_BASE[code];
+}
+function ensureMatchStats(mdi, mi){
+  if(!DATA.MATCH_STATS) DATA.MATCH_STATS = DATA.FIXTURES.map(md => md.matches.map(() => null));
+  if(!DATA.MATCH_STATS[mdi]) DATA.MATCH_STATS[mdi] = DATA.FIXTURES[mdi].matches.map(() => null);
+  if(!DATA.MATCH_STATS[mdi][mi]) DATA.MATCH_STATS[mdi][mi] = {passes:[0,0], yellow:[0,0], red:[0,0]};
+  return DATA.MATCH_STATS[mdi][mi];
+}
+function computeLiveTotals(){
+  const goals = {}, passes = {}, yellow = {}, red = {};
+  DATA.FIXTURES.forEach((md, mdi) => {
+    md.matches.forEach((m, mi) => {
+      const score = DATA.RESULTS[mdi] && DATA.RESULTS[mdi][mi];
+      if(score){
+        goals[m.home] = (goals[m.home]||0) + Number(score[0]||0);
+        goals[m.away] = (goals[m.away]||0) + Number(score[1]||0);
+      }
+      const s = DATA.MATCH_STATS && DATA.MATCH_STATS[mdi] && DATA.MATCH_STATS[mdi][mi];
+      if(s){
+        if(s.passes){ passes[m.home]=(passes[m.home]||0)+Number(s.passes[0]||0); passes[m.away]=(passes[m.away]||0)+Number(s.passes[1]||0); }
+        if(s.yellow){ yellow[m.home]=(yellow[m.home]||0)+Number(s.yellow[0]||0); yellow[m.away]=(yellow[m.away]||0)+Number(s.yellow[1]||0); }
+        if(s.red){ red[m.home]=(red[m.home]||0)+Number(s.red[0]||0); red[m.away]=(red[m.away]||0)+Number(s.red[1]||0); }
+      }
+    });
+  });
+  const totals = {};
+  DATA.PARTICIPANTS.forEach(p => {
+    const base = ensureBase(p.code);
+    totals[p.code] = {
+      goals: base.goals + (goals[p.code]||0),
+      assists: base.assists,
+      yellow: base.yellow + (yellow[p.code]||0),
+      red: base.red + (red[p.code]||0),
+      passes: base.passes + (passes[p.code]||0),
+    };
+  });
+  return totals;
+}
+function refreshParticipantStatDisplays(){
+  const totals = computeLiveTotals();
+  $all('.participant-card').forEach(card => {
+    const code = card.dataset.code;
+    const t = totals[code];
+    if(!t) return;
+    $('[data-stat="goals"]', card).textContent = t.goals;
+    $('[data-stat="yellow"]', card).textContent = t.yellow;
+    $('[data-stat="red"]', card).textContent = t.red;
+    $('[data-stat="passes"]', card).textContent = t.passes;
+  });
+}
+
 /* ---------- PARTICIPANTS ---------- */
 function renderParticipants(){
   const list = $('#participantsList');
   list.innerHTML = '';
+  const totals = computeLiveTotals();
   DATA.PARTICIPANTS.forEach((p, i) => {
-    const row = document.createElement('div');
-    row.className = 'participant-row';
-    row.innerHTML = `
-      <input value="${esc(p.code)}" data-f="code">
-      <input value="${esc(p.name)}" data-f="name">
-      <input value="${esc(p.country)}" data-f="country">
-      <input value="${esc(p.flag)}" data-f="flag" title="flag-icons country code, e.g. es, gb-eng">
-      <input type="color" class="swatch" value="${toHex(p.color)}" data-f="color">
-      <input type="number" value="${p.goals||0}" data-f="goals">
-      <input type="number" value="${p.assists||0}" data-f="assists">
-      <input type="number" value="${p.yellow||0}" data-f="yellow">
-      <input type="number" value="${p.red||0}" data-f="red">
-      <input type="number" value="${p.passes||0}" data-f="passes">
-      <button class="remove-btn" title="Remove player">×</button>
+    const base = ensureBase(p.code);
+    const t = totals[p.code];
+    const card = document.createElement('div');
+    card.className = 'participant-card';
+    card.dataset.code = p.code;
+    card.innerHTML = `
+      <div class="participant-main">
+        <input value="${esc(p.code)}" data-f="code" title="Player code (used in fixtures)">
+        <input value="${esc(p.name)}" data-f="name" placeholder="Gamertag">
+        <input value="${esc(p.country)}" data-f="country" placeholder="Country">
+        <input value="${esc(p.flag)}" data-f="flag" title="flag-icons country code, e.g. es, gb-eng">
+        <input type="color" class="swatch" value="${toHex(p.color)}" data-f="color">
+        <button class="remove-btn" title="Remove player">×</button>
+      </div>
+      <div class="participant-stats">
+        <div class="stat-box">
+          <div class="stat-name">Goals</div>
+          <div class="stat-total" data-stat="goals">${t.goals}</div>
+          <div class="stat-base-wrap"><span class="stat-base-label">start:</span><input type="number" data-base="goals" value="${base.goals}"></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-name">Assists</div>
+          <div class="stat-total" data-stat="assists">${base.assists}</div>
+          <div class="stat-base-wrap"><span class="stat-base-label">edit:</span><input type="number" data-base="assists" value="${base.assists}"></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-name">Yellow</div>
+          <div class="stat-total" data-stat="yellow">${t.yellow}</div>
+          <div class="stat-base-wrap"><span class="stat-base-label">start:</span><input type="number" data-base="yellow" value="${base.yellow}"></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-name">Red</div>
+          <div class="stat-total" data-stat="red">${t.red}</div>
+          <div class="stat-base-wrap"><span class="stat-base-label">start:</span><input type="number" data-base="red" value="${base.red}"></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-name">Passes</div>
+          <div class="stat-total" data-stat="passes">${t.passes}</div>
+          <div class="stat-base-wrap"><span class="stat-base-label">start:</span><input type="number" data-base="passes" value="${base.passes}"></div>
+        </div>
+      </div>
     `;
-    $all('input', row).forEach(input => {
+    $all('.participant-main input[data-f]', card).forEach(input => {
       input.addEventListener('input', () => {
         const f = input.dataset.f;
-        DATA.PARTICIPANTS[i][f] = (input.type === 'number') ? Number(input.value) : input.value;
+        const oldCode = p.code;
+        DATA.PARTICIPANTS[i][f] = input.value;
+        if(f === 'code' && input.value !== oldCode){
+          // keep base + match stats + fixtures pointing at the new code
+          if(DATA.PARTICIPANT_BASE && DATA.PARTICIPANT_BASE[oldCode]){
+            DATA.PARTICIPANT_BASE[input.value] = DATA.PARTICIPANT_BASE[oldCode];
+            delete DATA.PARTICIPANT_BASE[oldCode];
+          }
+          DATA.FIXTURES.forEach(md => md.matches.forEach(m => {
+            if(m.home === oldCode) m.home = input.value;
+            if(m.away === oldCode) m.away = input.value;
+          }));
+          card.dataset.code = input.value;
+          renderMatchdays();
+        }
       });
     });
-    $('.remove-btn', row).addEventListener('click', () => {
+    $all('.stat-base-wrap input[data-base]', card).forEach(input => {
+      input.addEventListener('input', () => {
+        ensureBase(p.code)[input.dataset.base] = Number(input.value) || 0;
+        refreshParticipantStatDisplays();
+      });
+    });
+    $('.remove-btn', card).addEventListener('click', () => {
       if(confirm(`Remove ${p.name || p.code}? This does not remove them from existing fixtures.`)){
         DATA.PARTICIPANTS.splice(i,1);
         renderParticipants();
-        renderMatchdays(); // dropdowns need refreshing
+        renderMatchdays();
       }
     });
-    list.appendChild(row);
+    list.appendChild(card);
   });
 }
 function toHex(c){ return /^#[0-9a-fA-F]{6}$/.test(c) ? c : '#888888'; }
 
 $('#addParticipant').addEventListener('click', () => {
-  DATA.PARTICIPANTS.push({code:'NEW', name:'New Player', country:'Country', flag:'un', color:'#888888', goals:0, assists:0, yellow:0, red:0, passes:0});
+  const code = 'NEW' + (DATA.PARTICIPANTS.length+1);
+  DATA.PARTICIPANTS.push({code, name:'New Player', country:'Country', flag:'un', color:'#888888', goals:0, assists:0, yellow:0, red:0, passes:0});
+  ensureBase(code);
   renderParticipants();
   renderMatchdays();
 });
 
-/* ---------- MATCHDAYS (fixtures + results together) ---------- */
+/* =========================================================
+   MATCHDAYS — fixtures, results, and per-match stats
+   ========================================================= */
+function buildMatchBlock(mdi, mi){
+  const playerMap = Object.fromEntries(DATA.PARTICIPANTS.map(p => [p.code, p]));
+  const codes = DATA.PARTICIPANTS.map(p => p.code);
+  const m = DATA.FIXTURES[mdi].matches[mi];
+  const score = (DATA.RESULTS[mdi] && DATA.RESULTS[mdi][mi]) || null;
+  const stats = (DATA.MATCH_STATS && DATA.MATCH_STATS[mdi] && DATA.MATCH_STATS[mdi][mi]) || null;
+
+  const block = document.createElement('div');
+  block.className = 'match-block';
+  block.dataset.mdi = mdi;
+  block.dataset.mi = mi;
+
+  const optionsFor = (selected) => codes.map(c => {
+    const p = playerMap[c];
+    return `<option value="${c}" ${c===selected?'selected':''}>${esc(p.name)} (${esc(p.country)})</option>`;
+  }).join('');
+
+  const row = document.createElement('div');
+  row.className = 'match-row';
+  row.innerHTML = `
+    <span class="status-dot ${score ? 'played' : 'pending'}" title="${score ? 'Result recorded' : 'No result yet'}"></span>
+    <select data-f="home">${optionsFor(m.home)}</select>
+    <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[0]:''}" data-f="hs">
+    <span class="vs">:</span>
+    <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[1]:''}" data-f="as">
+    <select data-f="away">${optionsFor(m.away)}</select>
+    <input data-f="time" value="${esc(m.time)}" placeholder="Time">
+    <button class="stats-toggle ${stats ? 'has-data' : ''}" type="button">Stats ▾</button>
+    <button class="remove-btn" title="Remove match">×</button>
+  `;
+
+  const statusDot = $('.status-dot', row);
+  const statsToggleBtn = $('.stats-toggle', row);
+
+  row.querySelector('[data-f="home"]').addEventListener('change', e => { DATA.FIXTURES[mdi].matches[mi].home = e.target.value; applyFilter(); });
+  row.querySelector('[data-f="away"]').addEventListener('change', e => { DATA.FIXTURES[mdi].matches[mi].away = e.target.value; applyFilter(); });
+  row.querySelector('[data-f="time"]').addEventListener('input', e => DATA.FIXTURES[mdi].matches[mi].time = e.target.value);
+
+  const updateScore = () => {
+    const hsEl = row.querySelector('[data-f="hs"]');
+    const asEl = row.querySelector('[data-f="as"]');
+    if(hsEl.value === '' || asEl.value === ''){
+      DATA.RESULTS[mdi][mi] = null;
+      statusDot.classList.remove('played'); statusDot.classList.add('pending');
+      statusDot.title = 'No result yet';
+    } else {
+      DATA.RESULTS[mdi][mi] = [Number(hsEl.value), Number(asEl.value)];
+      statusDot.classList.remove('pending'); statusDot.classList.add('played');
+      statusDot.title = 'Result recorded';
+    }
+    refreshParticipantStatDisplays();
+    applyFilter();
+  };
+  row.querySelector('[data-f="hs"]').addEventListener('input', updateScore);
+  row.querySelector('[data-f="as"]').addEventListener('input', updateScore);
+
+  row.querySelector('.remove-btn').addEventListener('click', () => {
+    DATA.FIXTURES[mdi].matches.splice(mi,1);
+    DATA.RESULTS[mdi].splice(mi,1);
+    if(DATA.MATCH_STATS && DATA.MATCH_STATS[mdi]) DATA.MATCH_STATS[mdi].splice(mi,1);
+    renderMatchdays();
+  });
+
+  block.appendChild(row);
+
+  /* ---------- stats panel (passes / yellow / red per side) ---------- */
+  const homeName = () => playerMap[DATA.FIXTURES[mdi].matches[mi].home]?.name || 'Home';
+  const awayName = () => playerMap[DATA.FIXTURES[mdi].matches[mi].away]?.name || 'Away';
+
+  const panel = document.createElement('div');
+  panel.className = 'stats-panel';
+  const s = stats || {passes:['',''], yellow:['',''], red:['','']};
+  panel.innerHTML = `
+    <p class="stats-hint">Enter what's on the match card. These add straight onto each player's season totals — no need to touch the Participants tab.</p>
+    <div class="stats-grid">
+      <span></span><span class="col-head" data-role="home-label">${esc(homeName())}</span><span class="col-head" data-role="away-label">${esc(awayName())}</span>
+      <span class="stat-label">Passes</span>
+      <input type="number" min="0" data-f="passes-h" value="${s.passes ? s.passes[0] : ''}">
+      <input type="number" min="0" data-f="passes-a" value="${s.passes ? s.passes[1] : ''}">
+      <span class="stat-label">Yellow cards</span>
+      <input type="number" min="0" data-f="yellow-h" value="${s.yellow ? s.yellow[0] : ''}">
+      <input type="number" min="0" data-f="yellow-a" value="${s.yellow ? s.yellow[1] : ''}">
+      <span class="stat-label">Red cards</span>
+      <input type="number" min="0" data-f="red-h" value="${s.red ? s.red[0] : ''}">
+      <input type="number" min="0" data-f="red-a" value="${s.red ? s.red[1] : ''}">
+    </div>
+  `;
+  block.appendChild(panel);
+
+  // keep the home/away names in the stats panel in sync if the player dropdowns change
+  row.querySelector('[data-f="home"]').addEventListener('change', () => { $('[data-role="home-label"]', panel).textContent = homeName(); });
+  row.querySelector('[data-f="away"]').addEventListener('change', () => { $('[data-role="away-label"]', panel).textContent = awayName(); });
+
+  const updateStatField = (key, side, value) => {
+    const entry = ensureMatchStats(mdi, mi);
+    if(!entry[key]) entry[key] = [0,0];
+    entry[key][side] = value === '' ? 0 : Number(value);
+    const hasAny = ['passes','yellow','red'].some(k => entry[k] && (entry[k][0] || entry[k][1]));
+    statsToggleBtn.classList.toggle('has-data', hasAny);
+    refreshParticipantStatDisplays();
+  };
+  [['passes-h','passes',0],['passes-a','passes',1],['yellow-h','yellow',0],['yellow-a','yellow',1],['red-h','red',0],['red-a','red',1]]
+    .forEach(([sel, key, side]) => {
+      panel.querySelector(`[data-f="${sel}"]`).addEventListener('input', e => updateStatField(key, side, e.target.value));
+    });
+
+  statsToggleBtn.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    statsToggleBtn.classList.toggle('open');
+  });
+
+  return block;
+}
+
 function renderMatchdays(){
   const list = $('#matchdaysList');
   list.innerHTML = '';
-  const playerMap = Object.fromEntries(
-  DATA.PARTICIPANTS.map(p => [p.code, p])
-);
-const codes = DATA.PARTICIPANTS.map(p => p.code);
+  const codes = DATA.PARTICIPANTS.map(p => p.code);
+
   DATA.FIXTURES.forEach((md, mdi) => {
     const card = document.createElement('div');
     card.className = 'matchday-card';
@@ -291,61 +559,13 @@ const codes = DATA.PARTICIPANTS.map(p => p.code);
       if(confirm(`Delete Matchday ${md.matchday} entirely, including its results?`)){
         DATA.FIXTURES.splice(mdi,1);
         DATA.RESULTS.splice(mdi,1);
+        if(DATA.MATCH_STATS) DATA.MATCH_STATS.splice(mdi,1);
         renderMatchdays();
       }
     });
     card.appendChild(head);
 
-    md.matches.forEach((m, mi) => {
-      const score = (DATA.RESULTS[mdi] && DATA.RESULTS[mdi][mi]) || null;
-      const row = document.createElement('div');
-      row.className = 'match-row';
-      row.innerHTML = `
-        <select data-f="home">${codes.map(c => {
-    const p = playerMap[c];
-    return `
-        <option value="${c}" ${c===m.home?'selected':''}>
-            ${p.name} (${p.country})
-        </option>
-    `;
-}).join('')}</select>
-        <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[0]:''}" data-f="hs">
-        <span class="vs">:</span>
-        <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[1]:''}" data-f="as">
-        <select data-f="away">${codes.map(c => {
-    const p = playerMap[c];
-    return `
-        <option value="${c}" ${c===m.away?'selected':''}>
-            ${p.name} (${p.country})
-        </option>
-    `;
-}).join('')}</select>
-        <input data-f="time" value="${esc(m.time)}" placeholder="Time / TBD">
-        <button class="remove-btn" title="Remove match">×</button>
-      `;
-      row.querySelector('[data-f="home"]').addEventListener('change', e => DATA.FIXTURES[mdi].matches[mi].home = e.target.value);
-      row.querySelector('[data-f="away"]').addEventListener('change', e => DATA.FIXTURES[mdi].matches[mi].away = e.target.value);
-      row.querySelector('[data-f="time"]').addEventListener('input', e => DATA.FIXTURES[mdi].matches[mi].time = e.target.value);
-
-      const updateScore = () => {
-        const hsEl = row.querySelector('[data-f="hs"]');
-        const asEl = row.querySelector('[data-f="as"]');
-        if(hsEl.value === '' || asEl.value === ''){
-          DATA.RESULTS[mdi][mi] = null;
-        } else {
-          DATA.RESULTS[mdi][mi] = [Number(hsEl.value), Number(asEl.value)];
-        }
-      };
-      row.querySelector('[data-f="hs"]').addEventListener('input', updateScore);
-      row.querySelector('[data-f="as"]').addEventListener('input', updateScore);
-
-      row.querySelector('.remove-btn').addEventListener('click', () => {
-        DATA.FIXTURES[mdi].matches.splice(mi,1);
-        DATA.RESULTS[mdi].splice(mi,1);
-        renderMatchdays();
-      });
-      card.appendChild(row);
-    });
+    md.matches.forEach((m, mi) => card.appendChild(buildMatchBlock(mdi, mi)));
 
     const addMatchBtn = document.createElement('button');
     addMatchBtn.className = 'add-btn';
@@ -353,20 +573,67 @@ const codes = DATA.PARTICIPANTS.map(p => p.code);
     addMatchBtn.addEventListener('click', () => {
       DATA.FIXTURES[mdi].matches.push({home: codes[0]||'', away: codes[1]||'', time:'TBD'});
       DATA.RESULTS[mdi].push(null);
+      if(DATA.MATCH_STATS) DATA.MATCH_STATS[mdi].push(null);
       renderMatchdays();
     });
     card.appendChild(addMatchBtn);
 
     list.appendChild(card);
   });
+
+  applyFilter();
 }
 
 $('#addMatchday').addEventListener('click', () => {
   const nextNum = DATA.FIXTURES.length ? Math.max(...DATA.FIXTURES.map(f=>f.matchday))+1 : 1;
   DATA.FIXTURES.push({matchday: nextNum, date: `Matchday ${nextNum}`, matches: []});
   DATA.RESULTS.push([]);
+  if(DATA.MATCH_STATS) DATA.MATCH_STATS.push([]);
   renderMatchdays();
 });
+
+/* ---------- quick find / filtering ---------- */
+function rowMatchesFilter(mdi, mi, filter){
+  const m = DATA.FIXTURES[mdi].matches[mi];
+  const playerMap = Object.fromEntries(DATA.PARTICIPANTS.map(p => [p.code, p]));
+  const home = playerMap[m.home], away = playerMap[m.away];
+  if(filter.onlyUnplayed){
+    const played = !!(DATA.RESULTS[mdi] && DATA.RESULTS[mdi][mi]);
+    if(played) return false;
+  }
+  if(filter.q){
+    const hay = [home?.name, home?.country, home?.code, away?.name, away?.country, away?.code]
+      .filter(Boolean).join(' ').toLowerCase();
+    if(!hay.includes(filter.q)) return false;
+  }
+  return true;
+}
+
+function applyFilter(){
+  const filter = {
+    q: ($('#matchSearch')?.value || '').trim().toLowerCase(),
+    onlyUnplayed: !!$('#onlyUnplayed')?.checked,
+  };
+  const filtering = !!(filter.q || filter.onlyUnplayed);
+  let visibleCount = 0, totalCount = 0;
+
+  $all('.matchday-card').forEach(card => {
+    let anyVisible = false;
+    $all('.match-block', card).forEach(block => {
+      totalCount++;
+      const mdi = Number(block.dataset.mdi), mi = Number(block.dataset.mi);
+      const show = rowMatchesFilter(mdi, mi, filter);
+      block.style.display = show ? '' : 'none';
+      if(show){ anyVisible = true; visibleCount++; }
+    });
+    card.style.display = (filtering && !anyVisible) ? 'none' : '';
+  });
+
+  $('#matchFilterEmpty').style.display = (filtering && visibleCount === 0) ? '' : 'none';
+  $('#matchFilterCount').textContent = filtering ? `Showing ${visibleCount} of ${totalCount} matches` : '';
+}
+$('#matchSearch')?.addEventListener('input', applyFilter);
+$('#onlyUnplayed')?.addEventListener('change', applyFilter);
 
 /* ---------- RULES ---------- */
 function renderRules(){
@@ -417,6 +684,8 @@ async function load(){
   setStatus('Loading…');
   const res = await fetch('/api/data');
   DATA = await res.json();
+  if(!DATA.MATCH_STATS) DATA.MATCH_STATS = DATA.FIXTURES.map(md => md.matches.map(() => null));
+  if(!DATA.PARTICIPANT_BASE) DATA.PARTICIPANT_BASE = {};
   $('#tourneyTitle').textContent = (DATA.TOURNAMENT.name || 'Tournament') + ' — Admin';
   bindSimpleInputs();
   renderParticipants();
@@ -438,6 +707,8 @@ $('#saveBtn').addEventListener('click', async () => {
     const out = await res.json();
     if(out.ok){
       setStatus('Saved ✓ — data.js updated', 'ok');
+      // reload so the Participants tab reflects freshly-recomputed totals
+      await load();
     } else {
       setStatus('Error: ' + out.error, 'err');
     }
