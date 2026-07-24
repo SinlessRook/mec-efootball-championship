@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continental eCup — Admin</title>
+<style>
+  :root{
+    --ink:#12181f;
+    --paper:#f5f6f4;
+    --line:#dfe3e0;
+    --pitch:#1f6f4a;
+    --pitch-dark:#154f34;
+    --gold:#c99a2e;
+    --danger:#b3432b;
+    --card:#ffffff;
+    --mono:'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:var(--paper); color:var(--ink);
+  }
+  header{
+    background:var(--pitch); color:#fff; padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  header h1{margin:0; font-size:20px; font-weight:700; letter-spacing:.3px;}
+  header .sub{font-size:12.5px; opacity:.85; margin-top:2px;}
+  .save-bar{display:flex; align-items:center; gap:12px;}
+  #status{font-size:13px; opacity:.9;}
+  button.primary{
+    background:var(--gold); color:#241a06; border:none; padding:10px 18px;
+    font-weight:700; border-radius:8px; cursor:pointer; font-size:14px;
+  }
+  button.primary:hover{filter:brightness(1.06);}
+  button.primary:disabled{opacity:.6; cursor:default;}
+  nav{
+    display:flex; gap:2px; background:var(--pitch-dark); padding:0 24px; overflow-x:auto;
+  }
+  nav button{
+    background:none; border:none; color:#dfeee5; padding:12px 16px; font-size:13.5px;
+    cursor:pointer; border-bottom:3px solid transparent; white-space:nowrap;
+  }
+  nav button.active{color:#fff; border-bottom-color:var(--gold); font-weight:700;}
+  main{max-width:1000px; margin:0 auto; padding:24px 20px 80px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  h2{font-size:16px; text-transform:uppercase; letter-spacing:.6px; color:var(--pitch-dark); margin:26px 0 10px;}
+  h2:first-child{margin-top:0;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:14px;
+  }
+  .grid{display:grid; gap:12px;}
+  .grid.cols-2{grid-template-columns:1fr 1fr;}
+  .grid.cols-3{grid-template-columns:1fr 1fr 1fr;}
+  label{display:block; font-size:11.5px; text-transform:uppercase; letter-spacing:.4px; color:#5b6560; margin-bottom:4px; font-weight:600;}
+  input, textarea, select{
+    width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:6px; font-size:14px;
+    font-family:inherit; background:#fff; color:var(--ink);
+  }
+  textarea{resize:vertical; min-height:44px;}
+  .row{display:flex; gap:10px; align-items:flex-end; margin-bottom:10px;}
+  .row > *{flex:1;}
+  .row .fixed{flex:0 0 auto;}
+  .remove-btn{
+    background:none; border:1px solid var(--danger); color:var(--danger); border-radius:6px;
+    width:36px; height:36px; cursor:pointer; font-size:16px; line-height:1;
+  }
+  .remove-btn:hover{background:var(--danger); color:#fff;}
+  .add-btn{
+    background:none; border:1px dashed var(--pitch); color:var(--pitch-dark); border-radius:8px;
+    padding:9px 14px; cursor:pointer; font-size:13.5px; font-weight:600; margin-top:4px;
+  }
+  .add-btn:hover{background:#eaf3ee;}
+  .matchday-card{border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:16px; background:var(--card);}
+  .matchday-head{display:flex; gap:10px; align-items:center; margin-bottom:12px;}
+  .matchday-head input{max-width:220px;}
+  .matchday-head .num{color:#5b6560; font-size:13px; white-space:nowrap;}
+  .match-row{display:grid; grid-template-columns:1fr 44px 44px 1fr 90px 36px; gap:8px; align-items:center; margin-bottom:8px;}
+  .match-row select, .match-row input{padding:8px;}
+  .score-input{text-align:center; font-family:var(--mono); font-weight:700;}
+  .vs{text-align:center; color:#9aa39d; font-weight:700; font-size:12px;}
+  .delete-matchday{color:var(--danger); font-size:12.5px; background:none; border:none; cursor:pointer; text-decoration:underline; margin-left:auto;}
+  .participant-row{display:grid; grid-template-columns:70px 1.3fr 1fr 60px 90px 55px 55px 55px 55px 60px 36px; gap:6px; align-items:center; margin-bottom:8px;}
+  .participant-row input{padding:7px;}
+  .swatch{width:100%; height:34px; border-radius:6px; border:1px solid var(--line); padding:0;}
+  .col-labels{display:grid; grid-template-columns:70px 1.3fr 1fr 60px 90px 55px 55px 55px 55px 60px 36px; gap:6px; margin-bottom:4px;}
+  .col-labels label{margin-bottom:0;}
+  .rule-card{border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; background:var(--card);}
+  .rule-head{display:flex; gap:10px; margin-bottom:8px;}
+  .rule-head .icon-input{max-width:70px; text-align:center; font-size:18px;}
+  .hint{font-size:12.5px; color:#5b6560; margin:-4px 0 14px;}
+  #status.err{color:#ffd7cc;}
+  #status.ok{color:#d7f0e2;}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1 id="tourneyTitle">Continental eCup — Admin</h1>
+    <div class="sub">Editing data.js directly on disk</div>
+  </div>
+  <div class="save-bar">
+    <span id="status"></span>
+    <button class="primary" id="saveBtn">Save changes</button>
+  </div>
+</header>
+
+<nav>
+  <button data-panel="info" class="active">Tournament info</button>
+  <button data-panel="participants">Participants</button>
+  <button data-panel="matchdays">Matchdays</button>
+  <button data-panel="knockout">Knockout</button>
+  <button data-panel="rules">Rules</button>
+</nav>
+
+<main>
+
+  <!-- INFO -->
+  <section class="panel active" id="panel-info">
+    <h2>Tournament info</h2>
+    <div class="card grid cols-2">
+      <div><label>Name</label><input data-bind="TOURNAMENT.name"></div>
+      <div><label>Short name (badge)</label><input data-bind="TOURNAMENT.shortName"></div>
+      <div><label>Season</label><input data-bind="TOURNAMENT.season"></div>
+      <div><label>Logo (emoji)</label><input data-bind="TOURNAMENT.logo"></div>
+      <div style="grid-column:1/-1;"><label>Format</label><input data-bind="TOURNAMENT.format"></div>
+      <div><label>Qualify count (players to knockout)</label><input type="number" min="2" data-bind="TOURNAMENT.qualifyCount"></div>
+      <div><label>Next kickoff (date &amp; time)</label><input type="datetime-local" data-bind="NEXT_KICKOFF_ISO" id="kickoffInput"></div>
+    </div>
+  </section>
+
+  <!-- PARTICIPANTS -->
+  <section class="panel" id="panel-participants">
+    <h2>Participants</h2>
+    <p class="hint">Country codes must be lowercase (flag) and player codes (used in fixtures) must stay unique, e.g. ESP, ARG.</p>
+    <div class="card">
+      <div class="col-labels">
+        <label>Code</label><label>Gamertag</label><label>Country</label><label>Flag</label>
+        <label>Color</label><label>Goals</label><label>Assists</label><label>Yellow</label>
+        <label>Red</label><label>Passes</label><label></label>
+      </div>
+      <div id="participantsList"></div>
+      <button class="add-btn" id="addParticipant">+ Add player</button>
+    </div>
+  </section>
+
+  <!-- MATCHDAYS -->
+  <section class="panel" id="panel-matchdays">
+    <h2>Matchdays, fixtures &amp; scores</h2>
+    <p class="hint">Leave a score box empty for a match that hasn't been played yet. Fill both boxes in to record a result.</p>
+    <div id="matchdaysList"></div>
+    <button class="add-btn" id="addMatchday">+ Add matchday</button>
+  </section>
+
+  <!-- KNOCKOUT -->
+  <section class="panel" id="panel-knockout">
+    <h2>Knockout stage dates</h2>
+    <div class="card grid cols-2">
+      <div><label>Quarterfinal 1</label><input data-bind="KNOCKOUT_DATES.qf1"></div>
+      <div><label>Quarterfinal 2</label><input data-bind="KNOCKOUT_DATES.qf2"></div>
+      <div><label>Quarterfinal 3</label><input data-bind="KNOCKOUT_DATES.qf3"></div>
+      <div><label>Quarterfinal 4</label><input data-bind="KNOCKOUT_DATES.qf4"></div>
+      <div><label>Semifinal 1</label><input data-bind="KNOCKOUT_DATES.sf1"></div>
+      <div><label>Semifinal 2</label><input data-bind="KNOCKOUT_DATES.sf2"></div>
+      <div style="grid-column:1/-1;"><label>Final</label><input data-bind="KNOCKOUT_DATES.final"></div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="panel" id="panel-rules">
+    <h2>Rules</h2>
+    <div id="rulesList"></div>
+    <button class="add-btn" id="addRule">+ Add rule</button>
+  </section>
+
+</main>
+
+<script>
+let DATA = null;
+const $ = (sel, root=document) => root.querySelector(sel);
+const $all = (sel, root=document) => [...root.querySelectorAll(sel)];
+
+function setStatus(msg, type){
+  const el = $('#status');
+  el.textContent = msg;
+  el.className = type || '';
+}
+
+/* ---------- generic path get/set for simple data-bind inputs ---------- */
+function getPath(obj, path){
+  return path.split('.').reduce((o,k)=>(o==null?o:o[k]), obj);
+}
+function setPath(obj, path, value){
+  const parts = path.split('.');
+  const last = parts.pop();
+  const target = parts.reduce((o,k)=>o[k], obj);
+  target[last] = value;
+}
+
+function bindSimpleInputs(){
+  $all('[data-bind]').forEach(input => {
+    const path = input.dataset.bind;
+    if(path === 'NEXT_KICKOFF_ISO'){
+      input.value = DATA.NEXT_KICKOFF_ISO ? DATA.NEXT_KICKOFF_ISO.slice(0,16) : '';
+    } else {
+      input.value = getPath(DATA, path);
+    }
+    input.addEventListener('input', () => {
+      if(path === 'NEXT_KICKOFF_ISO'){
+        DATA.NEXT_KICKOFF_ISO = input.value ? input.value + ':00' : DATA.NEXT_KICKOFF_ISO;
+      } else if(input.type === 'number'){
+        setPath(DATA, path, Number(input.value));
+      } else {
+        setPath(DATA, path, input.value);
+      }
+      if(path === 'TOURNAMENT.name'){
+        $('#tourneyTitle').textContent = input.value + ' — Admin';
+      }
+    });
+  });
+}
+
+/* ---------- PARTICIPANTS ---------- */
+function renderParticipants(){
+  const list = $('#participantsList');
+  list.innerHTML = '';
+  DATA.PARTICIPANTS.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'participant-row';
+    row.innerHTML = `
+      <input value="${esc(p.code)}" data-f="code">
+      <input value="${esc(p.name)}" data-f="name">
+      <input value="${esc(p.country)}" data-f="country">
+      <input value="${esc(p.flag)}" data-f="flag" title="flag-icons country code, e.g. es, gb-eng">
+      <input type="color" class="swatch" value="${toHex(p.color)}" data-f="color">
+      <input type="number" value="${p.goals||0}" data-f="goals">
+      <input type="number" value="${p.assists||0}" data-f="assists">
+      <input type="number" value="${p.yellow||0}" data-f="yellow">
+      <input type="number" value="${p.red||0}" data-f="red">
+      <input type="number" value="${p.passes||0}" data-f="passes">
+      <button class="remove-btn" title="Remove player">×</button>
+    `;
+    $all('input', row).forEach(input => {
+      input.addEventListener('input', () => {
+        const f = input.dataset.f;
+        DATA.PARTICIPANTS[i][f] = (input.type === 'number') ? Number(input.value) : input.value;
+      });
+    });
+    $('.remove-btn', row).addEventListener('click', () => {
+      if(confirm(`Remove ${p.name || p.code}? This does not remove them from existing fixtures.`)){
+        DATA.PARTICIPANTS.splice(i,1);
+        renderParticipants();
+        renderMatchdays(); // dropdowns need refreshing
+      }
+    });
+    list.appendChild(row);
+  });
+}
+function toHex(c){ return /^#[0-9a-fA-F]{6}$/.test(c) ? c : '#888888'; }
+
+$('#addParticipant').addEventListener('click', () => {
+  DATA.PARTICIPANTS.push({code:'NEW', name:'New Player', country:'Country', flag:'un', color:'#888888', goals:0, assists:0, yellow:0, red:0, passes:0});
+  renderParticipants();
+  renderMatchdays();
+});
+
+/* ---------- MATCHDAYS (fixtures + results together) ---------- */
+function renderMatchdays(){
+  const list = $('#matchdaysList');
+  list.innerHTML = '';
+  const codes = DATA.PARTICIPANTS.map(p=>p.code);
+
+  DATA.FIXTURES.forEach((md, mdi) => {
+    const card = document.createElement('div');
+    card.className = 'matchday-card';
+
+    const head = document.createElement('div');
+    head.className = 'matchday-head';
+    head.innerHTML = `
+      <span class="num">Matchday ${md.matchday}</span>
+      <input value="${esc(md.date)}" placeholder="Label shown on site, e.g. Matchday 1">
+      <button class="delete-matchday">Delete this matchday</button>
+    `;
+    $('input', head).addEventListener('input', e => { DATA.FIXTURES[mdi].date = e.target.value; });
+    $('.delete-matchday', head).addEventListener('click', () => {
+      if(confirm(`Delete Matchday ${md.matchday} entirely, including its results?`)){
+        DATA.FIXTURES.splice(mdi,1);
+        DATA.RESULTS.splice(mdi,1);
+        renderMatchdays();
+      }
+    });
+    card.appendChild(head);
+
+    md.matches.forEach((m, mi) => {
+      const score = (DATA.RESULTS[mdi] && DATA.RESULTS[mdi][mi]) || null;
+      const row = document.createElement('div');
+      row.className = 'match-row';
+      row.innerHTML = `
+        <select data-f="home">${codes.map(c=>`<option value="${c}" ${c===m.home?'selected':''}>${c}</option>`).join('')}</select>
+        <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[0]:''}" data-f="hs">
+        <span class="vs">:</span>
+        <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[1]:''}" data-f="as">
+        <select data-f="away">${codes.map(c=>`<option value="${c}" ${c===m.away?'selected':''}>${c}</option>`).join('')}</select>
+        <input data-f="time" value="${esc(m.time)}" placeholder="Time / TBD">
+        <button class="remove-btn" title="Remove match">×</button>
+      `;
+      row.querySelector('[data-f="home"]').addEventListener('change', e => DATA.FIXTURES[mdi].matches[mi].home = e.target.value);
+      row.querySelector('[data-f="away"]').addEventListener('change', e => DATA.FIXTURES[mdi].matches[mi].away = e.target.value);
+      row.querySelector('[data-f="time"]').addEventListener('input', e => DATA.FIXTURES[mdi].matches[mi].time = e.target.value);
+
+      const updateScore = () => {
+        const hsEl = row.querySelector('[data-f="hs"]');
+        const asEl = row.querySelector('[data-f="as"]');
+        if(hsEl.value === '' || asEl.value === ''){
+          DATA.RESULTS[mdi][mi] = null;
+        } else {
+          DATA.RESULTS[mdi][mi] = [Number(hsEl.value), Number(asEl.value)];
+        }
+      };
+      row.querySelector('[data-f="hs"]').addEventListener('input', updateScore);
+      row.querySelector('[data-f="as"]').addEventListener('input', updateScore);
+
+      row.querySelector('.remove-btn').addEventListener('click', () => {
+        DATA.FIXTURES[mdi].matches.splice(mi,1);
+        DATA.RESULTS[mdi].splice(mi,1);
+        renderMatchdays();
+      });
+      card.appendChild(row);
+    });
+
+    const addMatchBtn = document.createElement('button');
+    addMatchBtn.className = 'add-btn';
+    addMatchBtn.textContent = '+ Add match to this matchday';
+    addMatchBtn.addEventListener('click', () => {
+      DATA.FIXTURES[mdi].matches.push({home: codes[0]||'', away: codes[1]||'', time:'TBD'});
+      DATA.RESULTS[mdi].push(null);
+      renderMatchdays();
+    });
+    card.appendChild(addMatchBtn);
+
+    list.appendChild(card);
+  });
+}
+
+$('#addMatchday').addEventListener('click', () => {
+  const nextNum = DATA.FIXTURES.length ? Math.max(...DATA.FIXTURES.map(f=>f.matchday))+1 : 1;
+  DATA.FIXTURES.push({matchday: nextNum, date: `Matchday ${nextNum}`, matches: []});
+  DATA.RESULTS.push([]);
+  renderMatchdays();
+});
+
+/* ---------- RULES ---------- */
+function renderRules(){
+  const list = $('#rulesList');
+  list.innerHTML = '';
+  DATA.RULES.forEach((r, i) => {
+    const card = document.createElement('div');
+    card.className = 'rule-card';
+    card.innerHTML = `
+      <div class="rule-head">
+        <input class="icon-input" data-f="icon" value="${esc(r.icon)}">
+        <input data-f="title" value="${esc(r.title)}" placeholder="Rule title" style="flex:1;">
+        <button class="remove-btn" title="Remove rule">×</button>
+      </div>
+      <textarea data-f="text" rows="2">${esc(r.text)}</textarea>
+    `;
+    card.querySelector('[data-f="icon"]').addEventListener('input', e => DATA.RULES[i].icon = e.target.value);
+    card.querySelector('[data-f="title"]').addEventListener('input', e => DATA.RULES[i].title = e.target.value);
+    card.querySelector('[data-f="text"]').addEventListener('input', e => DATA.RULES[i].text = e.target.value);
+    card.querySelector('.remove-btn').addEventListener('click', () => {
+      DATA.RULES.splice(i,1);
+      renderRules();
+    });
+    list.appendChild(card);
+  });
+}
+$('#addRule').addEventListener('click', () => {
+  DATA.RULES.push({icon:'📌', title:'New rule', text:'Describe the rule here.'});
+  renderRules();
+});
+
+function esc(s){
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+}
+
+/* ---------- tabs ---------- */
+$all('nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    $all('nav button').forEach(b=>b.classList.remove('active'));
+    $all('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    $('#panel-' + btn.dataset.panel).classList.add('active');
+  });
+});
+
+/* ---------- load & save ---------- */
+async function load(){
+  setStatus('Loading…');
+  const res = await fetch('/api/data');
+  DATA = await res.json();
+  $('#tourneyTitle').textContent = (DATA.TOURNAMENT.name || 'Tournament') + ' — Admin';
+  bindSimpleInputs();
+  renderParticipants();
+  renderMatchdays();
+  renderRules();
+  setStatus('');
+}
+
+$('#saveBtn').addEventListener('click', async () => {
+  const btn = $('#saveBtn');
+  btn.disabled = true;
+  setStatus('Saving…');
+  try{
+    const res = await fetch('/api/data', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(DATA)
+    });
+    const out = await res.json();
+    if(out.ok){
+      setStatus('Saved ✓ — data.js updated', 'ok');
+    } else {
+      setStatus('Error: ' + out.error, 'err');
+    }
+  } catch(err){
+    setStatus('Error: ' + err.message, 'err');
+  }
+  btn.disabled = false;
+});
+
+load();
+</script>
+</body>
+</html>
