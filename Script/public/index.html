@@ -271,8 +271,10 @@ $('#addParticipant').addEventListener('click', () => {
 function renderMatchdays(){
   const list = $('#matchdaysList');
   list.innerHTML = '';
-  const codes = DATA.PARTICIPANTS.map(p=>p.code);
-
+  const playerMap = Object.fromEntries(
+  DATA.PARTICIPANTS.map(p => [p.code, p])
+);
+const codes = DATA.PARTICIPANTS.map(p => p.code);
   DATA.FIXTURES.forEach((md, mdi) => {
     const card = document.createElement('div');
     card.className = 'matchday-card';
@@ -299,11 +301,25 @@ function renderMatchdays(){
       const row = document.createElement('div');
       row.className = 'match-row';
       row.innerHTML = `
-        <select data-f="home">${codes.map(c=>`<option value="${c}" ${c===m.home?'selected':''}>${c}</option>`).join('')}</select>
+        <select data-f="home">${codes.map(c => {
+    const p = playerMap[c];
+    return `
+        <option value="${c}" ${c===m.home?'selected':''}>
+            ${p.name} (${p.country})
+        </option>
+    `;
+}).join('')}</select>
         <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[0]:''}" data-f="hs">
         <span class="vs">:</span>
         <input class="score-input" type="number" min="0" placeholder="-" value="${score?score[1]:''}" data-f="as">
-        <select data-f="away">${codes.map(c=>`<option value="${c}" ${c===m.away?'selected':''}>${c}</option>`).join('')}</select>
+        <select data-f="away">${codes.map(c => {
+    const p = playerMap[c];
+    return `
+        <option value="${c}" ${c===m.away?'selected':''}>
+            ${p.name} (${p.country})
+        </option>
+    `;
+}).join('')}</select>
         <input data-f="time" value="${esc(m.time)}" placeholder="Time / TBD">
         <button class="remove-btn" title="Remove match">×</button>
       `;
