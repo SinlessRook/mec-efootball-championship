@@ -231,7 +231,7 @@ function populatePlayerFilter() {
   const sel = document.getElementById("teamFilter");
   PARTICIPANTS.forEach((p) => {
     const opt = document.createElement("option");
-    opt.value = p.code; opt.textContent = `${p.flag} ${p.name}`;
+    opt.value = p.code; opt.textContent = `${p.name} (${p.country})`;
     sel.appendChild(opt);
   });
   sel.addEventListener("change", (e) => renderMatchdayList(e.target.value));
