@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continental eCup 26 — Online Tournament Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LED TICKER -->
+<div class="ticker" aria-label="Live score ticker">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="brand">
+    <span class="brand__mark">⚽</span>
+    <div class="brand__text">
+      <span class="brand__title">CONTINENTAL eCUP</span>
+      <span class="brand__year">26</span>
+    </div>
+  </div>
+  <div class="header__status">
+    <span class="dot dot--live"></span> Matchday <span id="curMatchday">5</span> of <span id="totalMatchdays">7</span> — Group Stage
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__glow"></div>
+  <div class="hero__content">
+    <span class="eyebrow-pill">🎮 Live Online eFootball Tournament</span>
+    <h1 class="hero__title">FOLLOW EVERY<br><span class="accent">MATCHDAY</span> LIVE</h1>
+    <p class="hero__sub">Follow the road from the group table to the grand final — fixtures, standings and stats from every online matchday, updated in real time.</p>
+
+    <div class="hero__cta">
+      <button class="btn btn--gold" data-goto="schedule">View Fixtures ↗</button>
+      <button class="btn btn--ghost" data-goto="leaderboard">Leaderboard</button>
+    </div>
+  </div>
+
+  <div class="hero__stage">
+    <span class="stat-pill"><span class="stat-pill__flags" id="statPillFlags">🇧🇷🇦🇷🇫🇷</span><span><b id="statPillNations">24 Nations</b><span id="statPillClubs">8 clubs, one cup</span></span></span>
+
+    <div class="float-card float-card--left">
+      <div class="float-card__icon">🔔</div>
+      <div class="float-card__title">Live Alerts</div>
+      <div class="float-card__sub">Get notified the second the stream goes live.</div>
+    </div>
+
+    <div class="phone">
+      <div class="phone__notch"></div>
+      <div class="phone__screen">
+        <div class="phone__top">
+          <span>← <b id="phoneMatchTitle">Live Match Preview</b></span>
+          <span class="phone__icons">⇪ ⛶</span>
+        </div>
+        <div class="phone-pitch" id="phonePitch">
+          <span class="phone-live"><span class="dot dot--live"></span> PREVIEW</span>
+          <span class="pitch-dot" id="pitchDotHome"></span>
+          <span class="pitch-dot" id="pitchDotAway"></span>
+          <span class="pitch-ball">⚽</span>
+        </div>
+        <div class="phone-score" id="phoneScore">– <small>vs</small> –</div>
+        <div class="phone-scrub">
+          <div class="phone-scrub__times"><span>58:24</span><span>90:00</span></div>
+          <div class="phone-scrub__bar"><div class="phone-scrub__fill"></div><div class="phone-scrub__thumb"></div></div>
+        </div>
+        <div class="phone__actions"><span>📡</span><span>⭐</span><span>🌐</span></div>
+      </div>
+      <div class="phone-more" id="phoneMore"></div>
+    </div>
+
+    <div class="float-card float-card--right">
+      <div class="float-card__icon">📊</div>
+      <div class="float-card__title">Live Stats</div>
+      <div class="float-card__sub">Every shot, pass and card, tracked live.</div>
+    </div>
+  </div>
+
+  <div class="countdown" id="countdown" aria-label="Countdown to next kickoff">
+    <div class="countdown__label">NEXT KICKOFF — <span id="countdownMatch">IRH vs SAB</span></div>
+    <div class="countdown__clock">
+      <div class="clock-box"><span id="cd-d">00</span><small>DAYS</small></div>
+      <div class="clock-box"><span id="cd-h">00</span><small>HRS</small></div>
+      <div class="clock-box"><span id="cd-m">00</span><small>MIN</small></div>
+      <div class="clock-box"><span id="cd-s">00</span><small>SEC</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV TABS -->
+<nav class="tabnav" id="tabnav">
+  <button class="tab active" data-tab="schedule">Schedule</button>
+  <button class="tab" data-tab="rules">Rules</button>
+  <button class="tab" data-tab="leaderboard">Leaderboard</button>
+  <button class="tab" data-tab="stats">Stats</button>
+</nav>
+
+<main class="views">
+
+  <!-- ============ SCHEDULE ============ -->
+  <section class="view active" id="view-schedule">
+    <div class="section-head">
+      <h2 class="section-title">Schedule</h2>
+      <div class="format-toggle" role="tablist" aria-label="Schedule format">
+        <button class="format-btn active" data-format="league">League Stage</button>
+        <button class="format-btn" data-format="knockout">Knockout</button>
+      </div>
+    </div>
+
+    <!-- LEAGUE FORMAT -->
+    <div class="format-panel active" id="format-league">
+      <div class="filter-row">
+        <label for="teamFilter">Filter by player</label>
+        <select id="teamFilter">
+          <option value="all">All players</option>
+        </select>
+      </div>
+      <div id="matchdayList" class="matchday-list"></div>
+    </div>
+
+    <!-- KNOCKOUT FORMAT -->
+    <div class="format-panel" id="format-knockout">
+      <p class="knockout-note">Top 8 players after the group stage advance. Seeding locks in once the final matchday concludes.</p>
+      <div class="bracket-wrap">
+        <div class="bracket-rounds" id="bracketRounds"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RULES ============ -->
+  <section class="view" id="view-rules">
+    <div class="section-head">
+      <h2 class="section-title">Rules, plain and simple</h2>
+      <p class="section-sub">No jargon — just what you need to follow the competition.</p>
+    </div>
+    <div class="rules-grid" id="rulesGrid"></div>
+  </section>
+
+  <!-- ============ LEADERBOARD ============ -->
+  <section class="view" id="view-leaderboard">
+    <div class="section-head">
+      <h2 class="section-title">Leaderboard</h2>
+      <p class="section-sub">Tap a column to sort. Top 4 qualify for the knockout stage.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="board" id="boardTable">
+        <thead>
+          <tr>
+            <th data-key="pos">#</th>
+            <th data-key="team" class="al">Player</th>
+            <th data-key="p">P</th>
+            <th data-key="w">W</th>
+            <th data-key="d">D</th>
+            <th data-key="l">L</th>
+            <th data-key="gf">GF</th>
+            <th data-key="ga">GA</th>
+            <th data-key="gd">GD</th>
+            <th data-key="pts" class="sorted">Pts</th>
+            <th class="al">Form</th>
+          </tr>
+        </thead>
+        <tbody id="boardBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="view" id="view-stats">
+    <div class="section-head">
+      <h2 class="section-title">Stats Centre</h2>
+      <p class="section-sub">The numbers behind Matchday 1–<span id="statsMdRange">5</span>.</p>
+    </div>
+
+    <div class="stat-summary" id="statSummary"></div>
+
+    <div class="stats-grid">
+      <div class="stat-panel">
+        <h3>Top Scorers</h3>
+        <ol class="stat-list" id="topScorers"></ol>
+      </div>
+      <div class="stat-panel">
+        <h3>Top Assists</h3>
+        <ol class="stat-list" id="topAssists"></ol>
+      </div>
+      <div class="stat-panel">
+        <h3>Discipline</h3>
+        <ol class="stat-list" id="discipline"></ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Continental eCup 26 — a mock online eFootball tournament hub built for demonstration. All players, gamertags and fixtures are fictional.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
