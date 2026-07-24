@@ -26,20 +26,20 @@ const TOURNAMENT = {
 const PARTICIPANTS = [
   { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 109 },
-  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 166 },
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 55 },
   { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 73 },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
   { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 105 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "🇲🇽", "color": "#18e7d9", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
+  { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "mx", "color": "#18e7d9", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
 ];
 
 /* ---------- FIXTURES ---------- */
@@ -50,44 +50,51 @@ const FIXTURES = [
     { "home": "GER", "away": "CRO", "time": "12:09" },
     { "home": "FRA", "away": "BEL", "time": "12:09" },
     { "home": "ENG", "away": "POR", "time": "12:09" },
-    { "home": "BRA", "away": "ITA", "time": "12:09" }
+    { "home": "NED", "away": "SWE", "time": "12:09" }
   ]},
   { "matchday": 2, "date": "Matchday 2", "matches": [
-    { "home": "ESP", "away": "ENG", "time": "TBD" },
+    { "home": "ESP", "away": "GER", "time": "TBD" },
     { "home": "FRA", "away": "NED", "time": "TBD" },
-    { "home": "ARG", "away": "CRO", "time": "TBD" },
-    { "home": "GER", "away": "BEL", "time": "TBD" },
+    { "home": "ARG", "away": "JPN", "time": "TBD" },
     { "home": "ITA", "away": "MAR", "time": "TBD" },
-    { "home": "BRA", "away": "POR", "time": "TBD" }
+    { "home": "BRA", "away": "POR", "time": "TBD" },
+    { "home": "NOR", "away": "MEX", "time": "TBD" },
+    { "home": "ENG", "away": "SWE", "time": "TBD" }
   ]},
   { "matchday": 3, "date": "Matchday 3", "matches": [
-    { "home": "ESP", "away": "GER", "time": "TBD" },
-    { "home": "ARG", "away": "FRA", "time": "TBD" },
+    { "home": "ESP", "away": "ARG", "time": "TBD" },
+    { "home": "CRO", "away": "ITA", "time": "TBD" },
     { "home": "ENG", "away": "BRA", "time": "TBD" },
     { "home": "NED", "away": "BEL", "time": "TBD" },
-    { "home": "CRO", "away": "ITA", "time": "TBD" },
-    { "home": "POR", "away": "NOR", "time": "TBD" }
+    { "home": "SWE", "away": "MEX", "time": "TBD" },
+    { "home": "JPN", "away": "NOR", "time": "TBD" }
   ]},
   { "matchday": 4, "date": "Matchday 4", "matches": [
-    { "home": "ESP", "away": "ARG", "time": "TBD" },
-    { "home": "FRA", "away": "ENG", "time": "TBD" },
+    { "home": "ESP", "away": "FRA", "time": "TBD" },
     { "home": "GER", "away": "NED", "time": "TBD" },
-    { "home": "BRA", "away": "MAR", "time": "TBD" },
     { "home": "CRO", "away": "POR", "time": "TBD" },
-    { "home": "BEL", "away": "NOR", "time": "TBD" }
+    { "home": "BRA", "away": "MAR", "time": "TBD" },
+    { "home": "ITA", "away": "ENG", "time": "TBD" },
+    { "home": "BEL", "away": "NOR", "time": "TBD" },
+    { "home": "JPN", "away": "MEX", "time": "TBD" }
   ]},
   { "matchday": 5, "date": "Matchday 5", "matches": [
-
+    { "home": "MAR", "away": "ARG", "time": "TBD" },
+    { "home": "CRO", "away": "MEX", "time": "TBD" },
+    { "home": "FRA", "away": "JPN", "time": "TBD" },
+    { "home": "GER", "away": "BEL", "time": "TBD" },
+    { "home": "ITA", "away": "BRA", "time": "TBD" },
+    { "home": "POR", "away": "SWE", "time": "TBD" }
   ]}
 ];
 
 /* ---------- RESULTS ---------- */
 const RESULTS = [
-  [[2,3], null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  []
+  [[2,3], null, [1,0], null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, [3,1], null, null],
+  [null, null, null, [1,0], null, null, null],
+  [null, null, null, [0,1], null, null]
 ];
 
 const NEXT_KICKOFF_ISO = "2026-07-25T17:00:00";
@@ -103,12 +110,13 @@ const KNOCKOUT_DATES = {
 };
 
 const RULES = [
-  { "icon": "🏆", "title": "The format", "text": "13 players face off online across 4 group-stage matchdays. The top 8 in the standings advance to a straight knockout: quarterfinals, semifinals, then the grand final." },
-  { "icon": "🔢", "title": "Points", "text": "A win is worth 3 points, a draw is worth 1 point, and a loss is worth 0. Most points after the group stage wins top seed." },
-  { "icon": "⚖️", "title": "Breaking ties", "text": "If players finish level on points, we check goal difference first, then total goals scored, then the head-to-head result between those players." },
-  { "icon": "⏱️", "title": "Match length", "text": "Every match is played to the full 90 in-game minutes across two 45-minute halves. Knockout matches level after regulation get extra time, then a penalty shootout if still tied." },
-  { "icon": "🟨", "title": "Cards", "text": "A yellow card is a caution; two in the same match means an automatic red. A red card sends a player off and rules them out of the next match." },
-  { "icon": "🔄", "title": "Substitutions", "text": "Each player can make up to 5 substitutions, used across a maximum of 3 stoppages in play (plus half-time) — exactly as the game engine allows." },
-  { "icon": "🔌", "title": "Disconnects", "text": "If a match disconnects before the 60th minute, it's replayed from scratch. After that, the score at the moment of the drop stands as full-time." },
-  { "icon": "📌", "title": "Game Settings", "text": "Use authentic team. Condition should be set as random and uniform rating should be turned off" }
+  { "icon": "🏆", "title": "The Format", "text": "16 players compete across 4 league-stage matchdays. Each player plays 4 matches, and the top 8 in the standings qualify for the knockout stage consisting of quarterfinals, semifinals, and the grand final." },
+  { "icon": "🔢", "title": "Points", "text": "A win earns 3 points, a draw earns 1 point, and a loss earns 0 points. Teams are ranked by total points at the end of the league stage." },
+  { "icon": "⚖️", "title": "Breaking Ties", "text": "If players finish level on points, the tiebreakers are applied in this order: goal difference, goals scored, and then the head-to-head result." },
+  { "icon": "🎮", "title": "Team Selection", "text": "Players should use their assigned national team with authentic squads. However, if both players mutually agree before kickoff, they may instead use Dream Teams consisting only of players eligible for their assigned national team." },
+  { "icon": "⏱️", "title": "Match Length", "text": "Matches are played over the full 90 in-game minutes. Knockout matches level after regulation proceed to extra time and, if required, a penalty shootout." },
+  { "icon": "🔄", "title": "Substitutions", "text": "Up to 5 substitutions may be made across a maximum of 3 stoppages in play (excluding half-time), following the game's standard rules." },
+  { "icon": "📷", "title": "Match Result", "text": "After every match, the losing player must share a screenshot of the match card in the tournament group. This helps verify the result and promotes good sportsmanship." },
+  { "icon": "🔌", "title": "Disconnects", "text": "If a match disconnects before the 60th in-game minute, it should be replayed. If the disconnect occurs after the 60th minute, both players should mutually agree on the result based on the score at the time of the disconnect. If no agreement is reached, the tournament organizer will make the final decision." },
+  { "icon": "📌", "title": "Game Settings", "text": "Use Random Condition and keep Uniform Rating turned OFF." }
 ];
