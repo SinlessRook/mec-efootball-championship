@@ -40,7 +40,7 @@ A modern **eFootball tournament management platform** built for the **Continenta
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/continental-ecup.git
+git clone https://github.com/sinlessrook/mec-efootball-championship.git
 cd continental-ecup
 ```
 
