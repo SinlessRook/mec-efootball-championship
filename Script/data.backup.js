@@ -11,6 +11,15 @@
    (server.js) when you use the web UI. It's safe to keep hand-
    editing it too — just restart the admin UI page afterwards
    to pick up your changes.
+
+   MATCH_STATS holds the per-match passes/yellow/red cards you
+   enter alongside a score. PARTICIPANT_BASE holds each player's
+   "starting totals" — stats from before this tracking existed
+   (or anything you'd rather adjust by hand). Every player's
+   final season total (in PARTICIPANTS below) is always just:
+     starting total + everything tallied from MATCH_STATS/RESULTS
+   You never need to hand-edit PARTICIPANTS' stat numbers — the
+   admin UI recalculates them on every save.
    ========================================================= */
 
 const TOURNAMENT = {
@@ -22,11 +31,11 @@ const TOURNAMENT = {
   "qualifyCount": 8
 };
 
-/* ---------- PARTICIPANTS ---------- */
+/* ---------- PARTICIPANTS (stat totals are auto-calculated — see PARTICIPANT_BASE below) ---------- */
 const PARTICIPANTS = [
   { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 109 },
-  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 166 },
+  { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 207 },
+  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 216 },
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 55 },
@@ -41,6 +50,29 @@ const PARTICIPANTS = [
   { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "mx", "color": "#18e7d9", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
 ];
+
+/* ---------- PARTICIPANT_BASE — starting totals per player, carried over from
+   before per-match tracking (or manual adjustments). Edit these in the
+   Participants tab under "Starting totals"; don't edit PARTICIPANTS' stat
+   fields above by hand, they get overwritten on every save. ---------- */
+const PARTICIPANT_BASE = {
+  "ARG": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "ESP": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 109 },
+  "GER": { "goals": 0, "assists": 0, "yellow": 1, "red": 0, "passes": 166 },
+  "FRA": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "ENG": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "BRA": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 55 },
+  "POR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "NED": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 73 },
+  "CRO": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
+  "BEL": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
+  "ITA": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "MAR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 105 },
+  "NOR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "SWE": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "JPN": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  "MEX": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 }
+};
 
 /* ---------- FIXTURES ---------- */
 const FIXTURES = [
@@ -91,10 +123,21 @@ const FIXTURES = [
 /* ---------- RESULTS ---------- */
 const RESULTS = [
   [[2,3], null, [1,0], null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null],
+  [[1,0], null, null, null, null, null, null],
+  [null, null, null, [3,1], null, null],
   [null, null, null, [1,0], null, null, null],
   [null, null, null, [0,1], null, null]
+];
+
+/* ---------- MATCH_STATS — passes/yellow/red per match, same shape as RESULTS.
+   null means "not entered yet". Format per match: {"passes":[home,away],
+   "yellow":[home,away],"red":[home,away]} ---------- */
+const MATCH_STATS = [
+  [null, null, null, null, null, null],
+  [{"passes":[98,50],"yellow":[0,0],"red":[0,0]}, null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null]
 ];
 
 const NEXT_KICKOFF_ISO = "2026-07-25T17:00:00";
