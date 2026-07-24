@@ -30,7 +30,7 @@ const TOURNAMENT = {
    on the Stats page. Leave them at 0 if you're not tracking them. */
 const PARTICIPANTS = [
   { code: "ARG", name: "Paul Kuriakose", country: "Argentina",   flag: "ar", color: "#6EC6FF", goals: 0, assists: 0, yellow: 0, red: 0,passes:0 },
-  { code: "ESP", name: "Adithyan",       country: "Spain",       flag: "es", color: "#E53935", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "ESP", name: "Adithyan",       country: "Spain",       flag: "es", color: "#E53935", goals: 2, assists: 0, yellow: 0, red: 0 ,passes:109},
   { code: "GER", name: "Hari Govind",    country: "Germany",     flag: "de", color: "#212121", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "FRA", name: "Jo Mec",         country: "France",      flag: "fr", color: "#1565C0", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "ENG", name: "Eshaan",         country: "England",     flag: "gb-eng", color: "#B71C1C", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
@@ -40,7 +40,7 @@ const PARTICIPANTS = [
   { code: "CRO", name: "Adwin",          country: "Croatia",     flag: "hr", color: "#D32F2F", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "BEL", name: "Akshay",         country: "Belgium",     flag: "be", color: "#F9A825", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "ITA", name: "Amithesh",       country: "Italy",       flag: "it", color: "#1976D2", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "MAR", name: "Ivan",           country: "Morocco",     flag: "ma", color: "#8E0000", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "MAR", name: "Ivan",           country: "Morocco",     flag: "ma", color: "#8E0000", goals: 3, assists: 0, yellow: 0, red: 0 ,passes:36},
   { code: "NOR", name: "Pradham",        country: "Norway",      flag: "no", color: "#3949AB", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
 ];
 
@@ -116,7 +116,7 @@ const FIXTURES = [
    null -> [2, 1]. Nothing else needs to change.                  */
 const RESULTS = [
     // Matchday 1 (6 matches)
-    [null, null, null, null, null, null],
+    [[2,3], null, null, null, null, null],
     // Matchday 2 (6 matches)
     [null, null, null, null, null, null],
     // Matchday 3 (6 matches)
