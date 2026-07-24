@@ -57,12 +57,12 @@ const FIXTURES = [
         matchday: 1,
         date: "Matchday 1",
         matches: [
-            { home: "ESP", away: "MAR", time: "TBD" },
-            { home: "ARG", away: "NOR", time: "TBD" },
-            { home: "GER", away: "CRO", time: "TBD" },
-            { home: "FRA", away: "BEL", time: "TBD" },
-            { home: "ENG", away: "POR", time: "TBD" },
-            { home: "BRA", away: "ITA", time: "TBD" },
+            { home: "ESP", away: "MAR", time: "12:09" },
+            { home: "ARG", away: "NOR", time: "12:09" },
+            { home: "GER", away: "CRO", time: "12:09" },
+            { home: "FRA", away: "BEL", time: "12:09" },
+            { home: "ENG", away: "POR", time: "12:09" },
+            { home: "BRA", away: "ITA", time: "12:09" },
         ]
     },
 
@@ -133,13 +133,13 @@ const NEXT_KICKOFF_ISO = "2026-07-25T17:00:00";
    Shown on the bracket once the group stage produces a Top 8.
    No physical venues — every knockout match is streamed live.    */
 const KNOCKOUT_DATES = {
-    qf1: "15 Aug · Streamed live — Twitch/YouTube",
-    qf2: "15 Aug · Streamed live — Twitch/YouTube",
-    qf3: "16 Aug · Streamed live — Twitch/YouTube",
-    qf4: "16 Aug · Streamed live — Twitch/YouTube",
-    sf1: "27 Aug · Streamed live — Twitch/YouTube",
-    sf2: "27 Aug · Streamed live — Twitch/YouTube",
-    final: "31 Aug · Grand Final broadcast",
+    qf1: "15 Aug",
+    qf2: "15 Aug",
+    qf3: "16 Aug",
+    qf4: "16 Aug",
+    sf1: "27 Aug",
+    sf2: "27 Aug",
+    final: "31 Aug · Grand Final",
 };
 
 /* ---------- RULES ---------- */
