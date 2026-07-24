@@ -326,7 +326,7 @@ function renderStats() {
 
   const row = (p, val, displayVal, max) => `
     <li>
-      <div class="stat-row__name">${p.flag} ${p.name} <small>${p.country}</small></div>
+      <div class="stat-row__name">${flagChip(p)}</div>
       <div class="stat-row__bar"><i style="--w:${Math.max(8, (val / max) * 100)}%"></i></div>
       <div class="stat-row__val">${displayVal}</div>
     </li>`;
@@ -389,9 +389,14 @@ function initFormatToggle() {
 function initCountdown() {
   const target = new Date(NEXT_KICKOFF_ISO).getTime();
   const label = document.getElementById("countdownMatch");
+
   if (NEXT_FIXTURE && label) {
-    const home = playerByCode(NEXT_FIXTURE.home), away = playerByCode(NEXT_FIXTURE.away);
-    label.textContent = home && away ? `${home.flag} ${home.name} vs ${away.flag} ${away.name}` : `${NEXT_FIXTURE.home} vs ${NEXT_FIXTURE.away}`;
+    const home = playerByCode(NEXT_FIXTURE.home);
+    const away = playerByCode(NEXT_FIXTURE.away);
+
+    label.innerHTML = (home && away)
+      ? `${flagChip(home)} <span class="vs">vs</span> ${flagChip(away)}`
+      : `${NEXT_FIXTURE.home} vs ${NEXT_FIXTURE.away}`;
   } else if (label) {
     label.textContent = "Group stage complete";
   }
