@@ -618,4 +618,5 @@ button { font-family: inherit; cursor: pointer; }
   .stat-list li { grid-template-columns: 1fr 60px 42px; }
   .section-title { font-size: 28px; }
   .header__status { display: none; }
+  .stat-pill { display: none; }
 }
