@@ -31,9 +31,9 @@ const PARTICIPANTS = [
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 55 },
   { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 73 },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
-  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 53 },
+  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
   { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 105 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -92,7 +92,7 @@ const FIXTURES = [
 const RESULTS = [
   [[2,3], null, [1,0], null, null, null],
   [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null],
+  [null, null, null, [3,1], null, null],
   [null, null, null, [1,0], null, null, null],
   [null, null, null, [0,1], null, null]
 ];
