@@ -33,7 +33,7 @@ const PARTICIPANTS = [
   { code: "ESP", name: "Adithyan",       country: "Spain",       flag: "🇪🇸", color: "#E53935", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "GER", name: "Hari Govind",    country: "Germany",     flag: "🇩🇪", color: "#212121", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "FRA", name: "Jo Mec",         country: "France",      flag: "🇫🇷", color: "#1565C0", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "ENG", name: "Eshaan",         country: "England",     flag: "🏴", color: "#B71C1C", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "ENG", name: "Eshaan",         country: "England",     flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", color: "#B71C1C", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "BRA", name: "Pranav",         country: "Brazil",      flag: "🇧🇷", color: "#2E7D32", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "POR", name: "Jones",          country: "Portugal",    flag: "🇵🇹", color: "#C62828", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
   { code: "NED", name: "Gopi",           country: "Netherlands", flag: "🇳🇱", color: "#EF6C00", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
