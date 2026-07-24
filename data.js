@@ -51,47 +51,49 @@ const FIXTURES = [
       { "home": "GER", "away": "CRO", "time": "12:09" },
       { "home": "FRA", "away": "BEL", "time": "12:09" },
       { "home": "ENG", "away": "POR", "time": "12:09" },
-      { "home": "BRA", "away": "ITA", "time": "12:09" }
+      { "home": "NED", "away": "SWE", "time": "12:09" }
     ]
   },
   {
     "matchday": 2, "date": "Matchday 2", "matches": [
-      { "home": "ESP", "away": "ENG", "time": "TBD" },
+      { "home": "ESP", "away": "GER", "time": "TBD" },
       { "home": "FRA", "away": "NED", "time": "TBD" },
-      { "home": "ARG", "away": "CRO", "time": "TBD" },
-      { "home": "GER", "away": "BEL", "time": "TBD" },
+      { "home": "ARG", "away": "JPN", "time": "TBD" },
       { "home": "ITA", "away": "MAR", "time": "TBD" },
-      { "home": "BRA", "away": "POR", "time": "TBD" }
+      { "home": "BRA", "away": "POR", "time": "TBD" },
+      { "home": "NOR", "away": "MEX", "time": "TBD" },
+      { "home": "ENG", "away": "SWE", "time": "TBD" }
     ]
   },
   {
     "matchday": 3, "date": "Matchday 3", "matches": [
-      { "home": "ESP", "away": "GER", "time": "TBD" },
-      { "home": "ARG", "away": "FRA", "time": "TBD" },
+      { "home": "ESP", "away": "ARG", "time": "TBD" },
+      { "home": "CRO", "away": "ITA", "time": "TBD" },
       { "home": "ENG", "away": "BRA", "time": "TBD" },
       { "home": "NED", "away": "BEL", "time": "TBD" },
-      { "home": "CRO", "away": "ITA", "time": "TBD" },
-      { "home": "POR", "away": "NOR", "time": "TBD" }
+      { "home": "SWE", "away": "MEX", "time": "TBD" },
+      { "home": "JPN", "away": "NOR", "time": "TBD" }
     ]
   },
   {
     "matchday": 4, "date": "Matchday 4", "matches": [
-      { "home": "ESP", "away": "ARG", "time": "TBD" },
-      { "home": "FRA", "away": "ENG", "time": "TBD" },
+      { "home": "ESP", "away": "FRA", "time": "TBD" },
       { "home": "GER", "away": "NED", "time": "TBD" },
-      { "home": "BRA", "away": "MAR", "time": "TBD" },
       { "home": "CRO", "away": "POR", "time": "TBD" },
-      { "home": "BEL", "away": "NOR", "time": "TBD" }
+      { "home": "BRA", "away": "MAR", "time": "TBD" },
+      { "home": "ITA", "away": "ENG", "time": "TBD" },
+      { "home": "BEL", "away": "NOR", "time": "TBD" },
+      { "home": "JPN", "away": "MEX", "time": "TBD" }
     ]
   },
   {
     "matchday": 5, "date": "Matchday 5", "matches": [
-      { "home": "ESP", "away": "FRA", "time": "TBD" },
-      { "home": "ARG", "away": "MAR", "time": "TBD" },
-      { "home": "GER", "away": "NOR", "time": "TBD" },
-      { "home": "ENG", "away": "ITA", "time": "TBD" },
-      { "home": "BRA", "away": "NED", "time": "TBD" },
-      { "home": "POR", "away": "BEL", "time": "TBD" }
+      { "home": "MAR", "away": "ARG", "time": "TBD" },
+      { "home": "CRO", "away": "MEX", "time": "TBD" },
+      { "home": "FRA", "away": "JPN", "time": "TBD" },
+      { "home": "GER", "away": "BEL", "time": "TBD" },
+      { "home": "ITA", "away": "BRA", "time": "TBD" },
+      { "home": "POR", "away": "SWE", "time": "TBD" }
     ]
   }
 ];
@@ -99,9 +101,9 @@ const FIXTURES = [
 /* ---------- RESULTS ---------- */
 const RESULTS = [
   [[2, 3], null, null, null, null, null],
+  [null, null, null, null, null, null, null],
   [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, [1, 0], null, null],
+  [null, null, null, [1, 0], null, null, null],
   [null, null, null, null, null, null]
 ];
 
