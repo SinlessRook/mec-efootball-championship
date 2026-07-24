@@ -414,6 +414,7 @@ button { font-family: inherit; cursor: pointer; }
    ========================================================= */
 .team-chip { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
 .team-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c); display: inline-block; box-shadow: 0 0 8px var(--c); }
+.flag-img { border-radius: 2px; object-fit: cover; vertical-align: middle; box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 
 /* =========================================================
    MATCHDAY LIST

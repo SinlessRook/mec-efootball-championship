@@ -126,7 +126,7 @@ function roundName(roundsFromEnd) {
    RENDERING
    ========================================================= */
 
-const flagChip = (p) => `<span class="team-chip"><i class="team-dot" style="--c:${p.color}"></i>${p.flag} ${p.name}</span>`;
+const flagChip = (p) => `<span class="team-chip"><i class="team-dot" style="--c:${p.color}"></i><img class="flag-img" src="https://flagcdn.com/w20/${p.flag}.png" alt="${p.country}" width="20" height="14"> ${p.name}</span>`;
 
 function playerByCode(code) { return PARTICIPANTS.find((p) => p.code === code); }
 

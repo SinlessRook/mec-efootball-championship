@@ -29,19 +29,19 @@ const TOURNAMENT = {
    goals / assists / yellow / red are OPTIONAL season stats used
    on the Stats page. Leave them at 0 if you're not tracking them. */
 const PARTICIPANTS = [
-  { code: "ARG", name: "Paul Kuriakose", country: "Argentina",   flag: "🇦🇷", color: "#6EC6FF", goals: 0, assists: 0, yellow: 0, red: 0,passes:0 },
-  { code: "ESP", name: "Adithyan",       country: "Spain",       flag: "🇪🇸", color: "#E53935", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "GER", name: "Hari Govind",    country: "Germany",     flag: "🇩🇪", color: "#212121", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "FRA", name: "Jo Mec",         country: "France",      flag: "🇫🇷", color: "#1565C0", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "ENG", name: "Eshaan",         country: "England",     flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", color: "#B71C1C", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "BRA", name: "Pranav",         country: "Brazil",      flag: "🇧🇷", color: "#2E7D32", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "POR", name: "Jones",          country: "Portugal",    flag: "🇵🇹", color: "#C62828", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "NED", name: "Gopi",           country: "Netherlands", flag: "🇳🇱", color: "#EF6C00", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "CRO", name: "Adwin",          country: "Croatia",     flag: "🇭🇷", color: "#D32F2F", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "BEL", name: "Akshay",         country: "Belgium",     flag: "🇧🇪", color: "#F9A825", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "ITA", name: "Amithesh",       country: "Italy",       flag: "🇮🇹", color: "#1976D2", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "MAR", name: "Ivan",           country: "Morocco",     flag: "🇲🇦", color: "#8E0000", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
-  { code: "NOR", name: "Pradham",        country: "Norway",      flag: "🇳🇴", color: "#3949AB", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "ARG", name: "Paul Kuriakose", country: "Argentina",   flag: "ar", color: "#6EC6FF", goals: 0, assists: 0, yellow: 0, red: 0,passes:0 },
+  { code: "ESP", name: "Adithyan",       country: "Spain",       flag: "es", color: "#E53935", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "GER", name: "Hari Govind",    country: "Germany",     flag: "de", color: "#212121", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "FRA", name: "Jo Mec",         country: "France",      flag: "fr", color: "#1565C0", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "ENG", name: "Eshaan",         country: "England",     flag: "gb-eng", color: "#B71C1C", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "BRA", name: "Pranav",         country: "Brazil",      flag: "br", color: "#2E7D32", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "POR", name: "Jones",          country: "Portugal",    flag: "pt", color: "#C62828", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "NED", name: "Gopi",           country: "Netherlands", flag: "nl", color: "#EF6C00", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "CRO", name: "Adwin",          country: "Croatia",     flag: "hr", color: "#D32F2F", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "BEL", name: "Akshay",         country: "Belgium",     flag: "be", color: "#F9A825", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "ITA", name: "Amithesh",       country: "Italy",       flag: "it", color: "#1976D2", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "MAR", name: "Ivan",           country: "Morocco",     flag: "ma", color: "#8E0000", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
+  { code: "NOR", name: "Pradham",        country: "Norway",      flag: "no", color: "#3949AB", goals: 0, assists: 0, yellow: 0, red: 0 ,passes:0},
 ];
 
 /* ---------- FIXTURES ----------
