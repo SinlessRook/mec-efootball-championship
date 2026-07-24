@@ -599,7 +599,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-height: 780px) {
   .hero { padding: 18px 24px 10px; }
   .hero__stage { min-height: 220px; }
-  .float-card { display: none; }
+  /* .float-card { display: none; } */
   .phone { width: 176px; }
   .phone-pitch { height: 78px; }
   .countdown { margin-top: 10px; }
