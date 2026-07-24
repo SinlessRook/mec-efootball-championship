@@ -11,6 +11,32 @@
    at run time.
    ========================================================= */
 
+// Full screen toggle button and Logic
+const fsBtn = document.getElementById("fullscreenBtn");
+
+fsBtn.addEventListener("click", async () => {
+  if (!document.fullscreenElement) {
+    await document.documentElement.requestFullscreen();
+    fsBtn.textContent = "⛶"; // or "🗗"
+    fsBtn.title = "Exit Fullscreen";
+  } else {
+    await document.exitFullscreen();
+    fsBtn.textContent = "⛶";
+    fsBtn.title = "Enter Fullscreen";
+  }
+});
+
+// Keep button in sync if user presses Esc
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    fsBtn.textContent = "🗗";
+    fsBtn.title = "Exit Fullscreen";
+  } else {
+    fsBtn.textContent = "⛶";
+    fsBtn.title = "Enter Fullscreen";
+  }
+});
+
 /* ---------- flatten FIXTURES + RESULTS into one match list ----------
    No generation, no assumptions about who plays who — we simply
    read what's already written in data.js and attach each match's

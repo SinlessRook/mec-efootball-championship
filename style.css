@@ -90,6 +90,25 @@ button { font-family: inherit; cursor: pointer; }
   display: flex; align-items: center; gap: 8px;
   font-family: var(--font-mono);
 }
+.fullscreen-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.fullscreen-btn:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.fullscreen-btn:active{
+    transform:scale(.95);
+}
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .dot--live { background: var(--live-red); box-shadow: 0 0 0 0 rgba(225,80,61,0.6); animation: pulse-dot 1.6s infinite; }
 @keyframes pulse-dot {
