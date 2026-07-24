@@ -315,13 +315,13 @@ function initSortableTable() {
 /* ---- stats ---- */
 function renderStats() {
   const scorers = [...PARTICIPANTS].sort((a, b) => b.goals - a.goals).slice(0, 6);
-  const assists = [...PARTICIPANTS].sort((a, b) => b.assists - a.assists).slice(0, 6);
+  const passes = [...PARTICIPANTS].sort((a, b) => b.passes - a.passes).slice(0, 6);
   const discipline = [...PARTICIPANTS]
     .map((p) => ({ ...p, points: p.yellow + p.red * 2 }))
     .sort((a, b) => b.points - a.points).slice(0, 6);
 
   const maxGoals = Math.max(1, scorers[0]?.goals || 0);
-  const maxAssists = Math.max(1, assists[0]?.assists || 0);
+  const maxPasses = Math.max(1, passes[0]?.passes || 0);
   const maxDisc = Math.max(1, discipline[0]?.points || 0);
 
   const row = (p, val, displayVal, max) => `
@@ -332,7 +332,7 @@ function renderStats() {
     </li>`;
 
   document.getElementById("topScorers").innerHTML = scorers.map((p) => row(p, p.goals, p.goals, maxGoals)).join("");
-  document.getElementById("topAssists").innerHTML = assists.map((p) => row(p, p.assists, p.assists, maxAssists)).join("");
+  document.getElementById("mostPasses").innerHTML = passes.map((p) => row(p, p.passes, p.passes, maxPasses)).join("");
   document.getElementById("discipline").innerHTML = discipline.map((p) =>
     row(p, p.points, `${p.yellow}🟨${p.red ? " " + p.red + "🟥" : ""}`, maxDisc)
   ).join("");
