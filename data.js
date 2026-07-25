@@ -140,7 +140,7 @@ const MATCH_STATS = [
   [{"passes":[48,52],"yellow":[0,0],"red":[0,0]}, null, null, null, {"passes":[69,46],"yellow":[0,0],"red":[0,1]}, null]
 ];
 
-const NEXT_KICKOFF_ISO = "2026-07-25T17:00:00";
+const NEXT_KICKOFF_ISO = "2026-07-26T17:00:00";
 
 const KNOCKOUT_DATES = {
   "qf1": "15 Aug",

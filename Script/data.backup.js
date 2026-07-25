@@ -39,9 +39,9 @@ const PARTICIPANTS = [
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 146 },
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 46 },
   { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 7, "assists": 0, "yellow": 0, "red": 1, "passes": 158 },
-  { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 127 },
+  { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 197 },
   { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 323 },
-  { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
+  { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 56 },
   { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 204 },
   { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 120 },
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 198 },
@@ -125,7 +125,7 @@ const RESULTS = [
   [[2,3], [0,1], [1,0], [0,1], [1,2], [2,0]],
   [[1,0], [1,2], null, [2,1], [6,1], [4,1], null],
   [[1,0], null, null, [3,1], null, [1,2]],
-  [[2,0], [0,1], null, [1,0], null, [1,0], null],
+  [[2,0], [0,1], [2,0], [1,0], null, [1,0], null],
   [[1,1], null, null, [0,1], [3,0], null]
 ];
 
@@ -136,7 +136,7 @@ const MATCH_STATS = [
   [null, {"passes":[60,45],"yellow":[0,0],"red":[0,0]}, null, {"passes":[54,49],"yellow":[0,0],"red":[0,0]}, {"passes":[46,57],"yellow":[0,0],"red":[0,0]}, {"passes":[108,21],"yellow":[0,0],"red":[0,0]}],
   [{"passes":[98,50],"yellow":[0,0],"red":[0,0]}, {"passes":[52,81],"yellow":[0,0],"red":[0,0]}, null, null, {"passes":[57,70],"yellow":[0,0],"red":[0,0]}, {"passes":[63,30],"yellow":[0,0],"red":[0,0]}, null],
   [{"passes":[85,42],"yellow":[0,0],"red":[0,0]}, null, null, null, null, {"passes":[60,75],"yellow":[0,0],"red":[0,0]}],
-  [{"passes":[90,40],"yellow":[0,0],"red":[0,0]}, {"passes":[59,61],"yellow":[0,0],"red":[0,0]}, null, null, null, {"passes":[36,67],"yellow":[0,0],"red":[0,0]}, null],
+  [{"passes":[90,40],"yellow":[0,0],"red":[0,0]}, {"passes":[59,61],"yellow":[0,0],"red":[0,0]}, {"passes":[32,70],"yellow":[0,0],"red":[0,0]}, null, null, {"passes":[36,67],"yellow":[0,0],"red":[0,0]}, null],
   [{"passes":[48,52],"yellow":[0,0],"red":[0,0]}, null, null, null, {"passes":[69,46],"yellow":[0,0],"red":[0,1]}, null]
 ];
 
