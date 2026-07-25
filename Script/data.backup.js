@@ -33,7 +33,7 @@ const TOURNAMENT = {
 
 /* ---------- PARTICIPANTS (stat totals are auto-calculated — see PARTICIPANT_BASE below) ---------- */
 const PARTICIPANTS = [
-  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
+  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 52 },
   { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 207 },
   { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 275 },
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -43,8 +43,8 @@ const PARTICIPANTS = [
   { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 134 },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
   { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
-  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 120 },
-  { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 150 },
+  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 120 },
+  { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 198 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -66,8 +66,8 @@ const PARTICIPANT_BASE = {
   "NED": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 73 },
   "CRO": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
   "BEL": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
-  "ITA": { "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 51 },
-  "MAR": { "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 150 },
+  "ITA": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 51 },
+  "MAR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 150 },
   "NOR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   "SWE": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   "JPN": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -126,7 +126,7 @@ const RESULTS = [
   [[1,0], null, null, [2,1], null, null, null],
   [null, null, null, [3,1], null, null],
   [null, [0,1], null, [1,0], null, null, null],
-  [null, null, null, [0,1], [3,0], null]
+  [[1,1], null, null, [0,1], [3,0], null]
 ];
 
 /* ---------- MATCH_STATS — passes/yellow/red per match, same shape as RESULTS.
@@ -137,7 +137,7 @@ const MATCH_STATS = [
   [{"passes":[98,50],"yellow":[0,0],"red":[0,0]}, null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, {"passes":[59,61],"yellow":[0,0],"red":[0,0]}, null, null, null, null, null],
-  [null, null, null, null, {"passes":[69,46],"yellow":[0,0],"red":[0,1]}, null]
+  [{"passes":[48,52],"yellow":[0,0],"red":[0,0]}, null, null, null, {"passes":[69,46],"yellow":[0,0],"red":[0,1]}, null]
 ];
 
 const NEXT_KICKOFF_ISO = "2026-07-25T17:00:00";
