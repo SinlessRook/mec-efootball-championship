@@ -43,8 +43,8 @@ const PARTICIPANTS = [
   { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 134 },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
   { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
-  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 69 },
-  { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 105 },
+  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 120 },
+  { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 150 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -66,8 +66,8 @@ const PARTICIPANT_BASE = {
   "NED": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 73 },
   "CRO": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 24 },
   "BEL": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 119 },
-  "ITA": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
-  "MAR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 105 },
+  "ITA": { "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 51 },
+  "MAR": { "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 150 },
   "NOR": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   "SWE": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
   "JPN": { "goals": 0, "assists": 0, "yellow": 0, "red": 0, "passes": 0 },
@@ -123,7 +123,7 @@ const FIXTURES = [
 /* ---------- RESULTS ---------- */
 const RESULTS = [
   [[2,3], null, [1,0], null, null, null],
-  [[1,0], null, null, null, null, null, null],
+  [[1,0], null, null, [2,1], null, null, null],
   [null, null, null, [3,1], null, null],
   [null, [0,1], null, [1,0], null, null, null],
   [null, null, null, [0,1], [3,0], null]
