@@ -76,7 +76,7 @@ const CURRENT_MATCHDAY = COMPLETED_MATCHDAYS < TOTAL_MATCHDAYS ? COMPLETED_MATCH
 function computeStandings() {
   const table = {};
   PARTICIPANTS.forEach((p) => {
-    table[p.code] = { code: p.code, name: p.name, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, form: [] };
+    table[p.code] = { code: p.code, name: p.name, status: p.status, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, form: [] };
   });
   MATCHES.filter((f) => f.played)
     .sort((a, b) => a.matchday - b.matchday)
@@ -316,7 +316,7 @@ function renderBoard() {
     return `
       <tr class="${qualified ? "qualified" : ""}">
         <td>${r.pos}</td>
-        <td class="al team-cell">${flagChip(playerByCode(r.code))}</td>
+        <td class="al team-cell">${flagChip(playerByCode(r.code))}${r.status=="Qualified" ? " (Q)" :r.status=="Eliminated" ? " (E)" : ""}</td>
         <td>${r.p}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td>
         <td>${r.gf}</td><td>${r.ga}</td><td>${r.gd > 0 ? "+" : ""}${r.gd}</td>
         <td class="pts">${r.pts}</td>

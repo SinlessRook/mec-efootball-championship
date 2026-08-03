@@ -33,19 +33,19 @@ const TOURNAMENT = {
 
 /* ---------- PARTICIPANTS (stat totals are auto-calculated — see PARTICIPANT_BASE below) ---------- */
 const PARTICIPANTS = [
-  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 154 },
-  { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 6, "assists": 0, "yellow": 0, "red": 0, "passes": 382 },
-  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 275 },
-  { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 146 },
+  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 154,"status": "Eliminated" },
+  { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 6, "assists": 0, "yellow": 0, "red": 0, "passes": 382,"status": "Qualified" },
+  { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 275,"status": "Eliminated" },
+  { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 146,"status": "Eliminated" },
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 149 },
-  { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 10, "assists": 0, "yellow": 0, "red": 1, "passes": 198 },
+  { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 10, "assists": 0, "yellow": 0, "red": 1, "passes": 198,"status": "Qualified"  },
   { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 197 },
-  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 323 },
+  { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 323,"status": "Qualified"  },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 88 },
-  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 204 },
-  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 9, "assists": 0, "yellow": 0, "red": 0, "passes": 190 },
+  { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 204,"status": "Qualified"  },
+  { "code": "ITA", "name": "Amithesh", "country": "Italy", "flag": "it", "color": "#1976D2", "goals": 9, "assists": 0, "yellow": 0, "red": 0, "passes": 190,"status": "Qualified"  },
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 198 },
-  { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 250 },
+  { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 250,"status": "Qualified"  },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 97 },
   { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 60 },
   { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "mx", "color": "#18e7d9", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 75 }
