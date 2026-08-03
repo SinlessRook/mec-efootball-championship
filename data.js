@@ -33,7 +33,7 @@ const TOURNAMENT = {
 
 /* ---------- PARTICIPANTS (stat totals are auto-calculated — see PARTICIPANT_BASE below) ---------- */
 const PARTICIPANTS = [
-  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 154 },
+  { "code": "ARG", "name": "Paul Kuriakose", "country": "Argentina", "flag": "ar", "color": "#6EC6FF", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 154 },
   { "code": "ESP", "name": "Adithyan", "country": "Spain", "flag": "es", "color": "#E53935", "goals": 6, "assists": 0, "yellow": 0, "red": 0, "passes": 382 },
   { "code": "GER", "name": "Hari Govind", "country": "Germany", "flag": "de", "color": "#212121", "goals": 1, "assists": 0, "yellow": 1, "red": 0, "passes": 275 },
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 146 },
@@ -47,7 +47,7 @@ const PARTICIPANTS = [
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 198 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 250 },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 97 },
-  { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 60 },
+  { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 60 },
   { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "mx", "color": "#18e7d9", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 75 }
 ];
 
@@ -108,22 +108,22 @@ const FIXTURES = [
     { "home": "BRA", "away": "MAR", "time": "TBD" },
     { "home": "ITA", "away": "ENG", "time": "TBD" },
     { "home": "BEL", "away": "NOR", "time": "TBD" },
-    { "home": "JPN", "away": "MEX", "time": "TBD" }
+    { "home": "JPN", "away": "MEX", "time": "ASAP" }
   ]},
   { "matchday": 5, "date": "Matchday 5", "matches": [
     { "home": "MAR", "away": "ARG", "time": "TBD" },
-    { "home": "CRO", "away": "MEX", "time": "TBD" },
-    { "home": "FRA", "away": "JPN", "time": "TBD" },
+    { "home": "CRO", "away": "MEX", "time": "ASAP" },
+    { "home": "FRA", "away": "JPN", "time": "ASAP" },
     { "home": "GER", "away": "BEL", "time": "TBD" },
     { "home": "ITA", "away": "BRA", "time": "TBD" },
-    { "home": "POR", "away": "SWE", "time": "TBD" }
+    { "home": "POR", "away": "SWE", "time": "ASAP" }
   ]}
 ];
 
 /* ---------- RESULTS ---------- */
 const RESULTS = [
   [[2,3], [0,1], [1,0], [0,1], [1,2], [2,0]],
-  [[1,0], [1,2], null, [2,1], [6,1], [4,1], [2,0]],
+  [[1,0], [1,2], [2,2], [2,1], [6,1], [4,1], [2,0]],
   [[1,0], [1,2], [3,3], [3,1], [3,1], [1,2]],
   [[2,0], [0,1], [2,0], [1,0], [2,2], [1,0], null],
   [[1,1], null, null, [0,1], [3,0], null]
