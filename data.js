@@ -47,7 +47,7 @@ const PARTICIPANTS = [
   { "code": "MAR", "name": "Ivan", "country": "Morocco", "flag": "ma", "color": "#8E0000", "goals": 5, "assists": 0, "yellow": 0, "red": 0, "passes": 198 },
   { "code": "NOR", "name": "Pradham", "country": "Norway", "flag": "no", "color": "#3949AB", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 250 },
   { "code": "SWE", "name": "Anujith", "country": "Switzerland", "flag": "ch", "color": "#888888", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 97 },
-  { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 60 },
+  { "code": "JPN", "name": "Jeevan", "country": "Japan", "flag": "jp", "color": "#8ab931", "goals": 6, "assists": 0, "yellow": 0, "red": 0, "passes": 60 },
   { "code": "MEX", "name": "Akshay A", "country": "Mexico", "flag": "mx", "color": "#18e7d9", "goals": 2, "assists": 0, "yellow": 0, "red": 0, "passes": 146 }
 ];
 
@@ -125,7 +125,7 @@ const RESULTS = [
   [[2,3], [0,1], [1,0], [0,1], [1,2], [2,0]],
   [[1,0], [1,2], [2,2], [2,1], [6,1], [4,1], [2,0]],
   [[1,0], [1,2], [3,3], [3,1], [3,1], [1,2]],
-  [[2,0], [0,1], [2,0], [1,0], [2,2], [1,0], null],
+  [[2,0], [0,1], [2,0], [1,0], [2,2], [1,0], [3,0]],
   [[1,1], [3,0], null, [0,1], [3,0], [4,0]]
 ];
 

@@ -39,7 +39,7 @@ const PARTICIPANTS = [
   { "code": "FRA", "name": "Jo", "country": "France", "flag": "fr", "color": "#1565C0", "goals": 1, "assists": 0, "yellow": 0, "red": 0, "passes": 146 },
   { "code": "ENG", "name": "Eshaan", "country": "England", "flag": "gb-eng", "color": "#B71C1C", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 149 },
   { "code": "BRA", "name": "Pranav", "country": "Brazil", "flag": "br", "color": "#2E7D32", "goals": 10, "assists": 0, "yellow": 0, "red": 1, "passes": 198 },
-  { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 3, "assists": 0, "yellow": 0, "red": 0, "passes": 197 },
+  { "code": "POR", "name": "Jones", "country": "Portugal", "flag": "pt", "color": "#C62828", "goals": 7, "assists": 0, "yellow": 0, "red": 0, "passes": 197 },
   { "code": "NED", "name": "Gopi", "country": "Netherlands", "flag": "nl", "color": "#EF6C00", "goals": 8, "assists": 0, "yellow": 0, "red": 0, "passes": 323 },
   { "code": "CRO", "name": "Adwin", "country": "Croatia", "flag": "hr", "color": "#D32F2F", "goals": 6, "assists": 0, "yellow": 0, "red": 0, "passes": 148 },
   { "code": "BEL", "name": "Akshay B", "country": "Belgium", "flag": "be", "color": "#F9A825", "goals": 4, "assists": 0, "yellow": 0, "red": 0, "passes": 204 },
@@ -126,7 +126,7 @@ const RESULTS = [
   [[1,0], [1,2], [2,2], [2,1], [6,1], [4,1], [2,0]],
   [[1,0], [1,2], [3,3], [3,1], [3,1], [1,2]],
   [[2,0], [0,1], [2,0], [1,0], [2,2], [1,0], null],
-  [[1,1], [3,0], null, [0,1], [3,0], null]
+  [[1,1], [3,0], null, [0,1], [3,0], [4,0]]
 ];
 
 /* ---------- MATCH_STATS — passes/yellow/red per match, same shape as RESULTS.
