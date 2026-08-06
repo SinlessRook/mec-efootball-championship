@@ -93,7 +93,7 @@ function computeStandings() {
     ...t, gd: t.gf - t.ga, pts: t.w * 3 + t.d,
     form: t.form.slice(-5),
   }));
-  rows.sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf);
+  rows.sort((a, b) => b.pts - a.pts || b.gd - a.gd || b.gf - a.gf || a.name.localeCompare(b.name));
   rows.forEach((r, i) => (r.pos = i + 1));
   return rows;
 }
